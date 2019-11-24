@@ -77,7 +77,7 @@ public class Session extends HttpServlet{
 				disp = getServletContext().getRequestDispatcher("/adminPass.jsp");
 			}
 			else if(window==2){
-				disp = getServletContext().getRequestDispatcher("/pass.jsp");
+				disp = getServletContext().getRequestDispatcher("/entrenadorPass.jsp");
 			}
 			else if(window==3){
 				window=1;

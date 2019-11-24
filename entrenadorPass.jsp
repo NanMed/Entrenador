@@ -102,20 +102,7 @@
       
         <section class="row justify-content-center align-items-center mx-0">
 
-             <!-- <form action="./Session" method="post">
-                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Nuevo diseño</h5>
-                    <div class="card-body">
-                        <p class="card-text">Agrega un nuevo diseño a la tienda y pónlo a la venta.</p>
-                            <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
-                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-                            <input type="text" id="pestana" name="pestana" class="input" value="5"> 
-                            <input class="proyecto_buton btn btn-success" type="submit"  value="Agregar">
-                    </div>
-                </div>
-            </form> -->
-
-            <form action="./ShowProducts" method="post">
+            <form action="./ShowPacientes" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                     <h5 class="card-header card-title">Ver pacientes</h5>
                     <div class="card-body">
@@ -127,6 +114,21 @@
                     </div>
                 </div>
             </form>
+
+            <form action="./ShowPacientes" method="post">
+                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                    <h5 class="card-header card-title">Alta Rutina</h5>
+                    <div class="card-body">
+                            <p class="card-text">Dar de alta una nueva rutina de ejercicios.</p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
+                            <input type="text" id="pestana" name="pestana" class="input" value="2">  
+                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
+                    </div>
+                </div>
+            </form>
+
+
 
         </section>
             

@@ -2,13 +2,13 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import objetos.Cuenta;
+import objetos.Progreso;
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/ShowUsuarios")
-public class ShowUsuarios extends HttpServlet{
+@WebServlet("/ShowRutina")
+public class ShowRutina extends HttpServlet{
  
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
@@ -36,15 +36,15 @@ public class ShowUsuarios extends HttpServlet{
 
 			ResultSet res = stat.executeQuery(sql2);
 
-			Vector<Cuenta> progreso = new Vector<Cuenta>();
+			Vector<Progreso> progreso = new Vector<Progreso>();
 
             while(res.next()){
                 Progreso aux = new Progreso();
-                aux.setIdProrgeso(res.getInt("idProgreso"));
+                aux.setIdProgreso(res.getInt("idProgreso"));
                 aux.setVelocidad(res.getInt("velocidad"));
                 aux.setResistencia(res.getInt("resistencia"));
                 aux.setFuerza(res.getInt("fuerza"));
-                colaboradores.add(aux);
+                progreso.add(aux);
             }
 
 			stat.close();
