@@ -25,27 +25,26 @@ public class EditarColab extends HttpServlet{
     
             Statement stat = con.createStatement();
 
-            int id = Integer.parseInt(request.getParameter("test3"));
+            //int id = Integer.parseInt(request.getParameter("test3"));
             int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             String nombre = request.getParameter("name");
             int window = Integer.parseInt(request.getParameter("pestana"));
 
-            String sql = "Delete from colaborador where ID="+id+";";
-            stat.executeUpdate(sql);
+            int idE = Integer.parseInt(request.getParameter("id"));
+            String nombreE = request.getParameter("nombres");
+            String apellido = request.getParameter("apellido");
+            String edad = request.getParameter("edad");
+            String genero = request.getParameter("genero");
 
-            String sql2 = "Delete from cuenta where ID="+id+";";
-            stat.executeUpdate(sql2);
+            String sql = "Update colaborador set nombre = '"+nombreE+"', apellido = '"+apellido+"', edad = '"+edad+"', genero = '"+genero+"' where id = "+idE+";";
+
             
-            String sql3 = "SELECT * FROM colaborador;";
-
-            ResultSet res = stat.executeQuery(sql3);
+            ResultSet res = stat.executeQuery(sql);
 
             Vector<Colaborador> colaboradores = new Vector<Colaborador>();
 
             while(res.next()){
                 Colaborador aux = new Colaborador();
-                aux.setId(res.getInt("ID"));
-                aux.setCuenta(res.getInt("cuenta"));
                 aux.setNombre(res.getString("nombre"));
                 aux.setApellido(res.getString("apellido"));
                 aux.setEdad(res.getString("edad"));

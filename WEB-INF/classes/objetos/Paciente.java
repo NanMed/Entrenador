@@ -1,49 +1,51 @@
 package objetos;
 public class Paciente{
-    private int ID; 
+    private int id; 
     private int cuenta;
     private String contrasenia; 
     private String nombre;
     private String apellido;
     private String edad;
-    private String tipo_u;
+    private String tipoU;
     private String genero;
-    private int idRutina;
-    private int idMedico;
-    private int idEntrenador;
-
+    private int id_rutina;
+    private int id_medico;
+    private int id_entrenador;
     public Paciente(){
 
     }
 
-    public Paciente(int ID, int cuenta, String contrasenia, String nombre, String apellido, String edad, String tipo_u, String genero, int idRutina,int idMedico,int idEntrenador){
-        this.ID = ID; 
+    public Paciente(int id, int cuenta, String contrasenia, String nombre, String apellido, String edad, String tipoU, String genero, int id_rutina, int id_medico, int id_entrenador){
+        this.id = id; 
         this.cuenta = cuenta;
         this.contrasenia = contrasenia;
         this.nombre = nombre; 
         this.apellido = apellido;
         this.edad = edad;
-        this.tipo_u = tipo_u; 
+        this.tipoU = tipoU; 
         this.genero = genero;
-        this.idRutina = idRutina;
-        this.idEntrenador=idEntrenador;
-        this.idMedico=idMedico;
+        this.id_rutina = id_rutina;
+        this.id_medico = id_medico;
+        this.id_entrenador = id_entrenador;
     }
 
-    public Paciente(int cuenta, String contrasenia, String nombre, String apellido, String edad, String tipo_u, String genero, int idRutina,int idEntrenador,int idMedico){ 
+    public Paciente(int cuenta, String contrasenia, String nombre, String apellido, String edad, String tipoU, String genero, int id_rutina){ 
         this.cuenta = cuenta;
         this.contrasenia = contrasenia;
         this.nombre = nombre; 
         this.apellido = apellido;
         this.edad = edad;
-        this.tipo_u = tipo_u; 
+        this.tipoU = tipoU; 
         this.genero = genero;
-        this.idRutina = idRutina;
-         this.idEntrenador=idEntrenador;
-        this.idMedico=idMedico;
+        this.id_rutina = id_rutina;
     }
 
-    
+    public void setId(int id){
+        this.id = id; 
+    }
+    public int getId(){
+        return id;
+    }
 
     public void setCuenta(int cuenta){
         this.cuenta = cuenta;
@@ -81,7 +83,13 @@ public class Paciente{
     public String getEdad(){
         return edad;
     }
-    
+    public void setTipoU(String tipoU){
+        this.tipoU = tipoU; 
+    }
+
+    public String getTipoU(){
+        return tipoU;
+    }
 
     public void setGenero(String genero){
         this.genero = genero; 
@@ -91,46 +99,25 @@ public class Paciente{
         return genero;
     }
 
-    public int getID() {
-        return ID;
+    public void setIdRutina(int id_rutina){
+        this.id_rutina = id_rutina;
+    }
+    public int getIdRutina(){
+        return id_rutina;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIdMedico(int id_medico){
+        this.id_medico = id_medico;
+    }
+    public int getIdMedico(){
+        return id_medico;
     }
 
-    public String getTipo_u() {
-        return tipo_u;
+    public void setIdEntrenador(int id_entrenador){
+        this.id_entrenador = id_entrenador;
     }
-
-    public void setTipo_u(String tipo_u) {
-        this.tipo_u = tipo_u;
+    public int getIdEntrenador(){
+        return id_entrenador;
     }
-
-    public int getIdRutina() {
-        return idRutina;
-    }
-
-    public void setIdRutina(int idRutina) {
-        this.idRutina = idRutina;
-    }
-
-    public int getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(int idMedico) {
-        this.idMedico = idMedico;
-    }
-
-    public int getIdEntrenador() {
-        return idEntrenador;
-    }
-
-    public void setIdEntrenador(int idEntrenador) {
-        this.idEntrenador = idEntrenador;
-    }
-
-    
     
 }

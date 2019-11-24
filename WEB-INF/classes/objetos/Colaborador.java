@@ -1,7 +1,7 @@
 package objetos;
 public class Colaborador {
-    private int ID;
-    private int cuenta;
+    private int id;
+    private int cuenta; 
     private String nombre;
     private String apellido;
     private String edad;
@@ -12,8 +12,8 @@ public class Colaborador {
         
     }
     
-    public Colaborador(int ID,int cuenta, String nombre, String apellido, String edad, String genero, String contrasenia){
-        this.ID=ID;
+    public Colaborador(int id,int cuenta, String nombre, String apellido, String edad, String genero, String contrasenia){
+        this.id=id;
         this.cuenta=cuenta;
         this.nombre=nombre;
         this.apellido=apellido;
@@ -30,12 +30,12 @@ public class Colaborador {
         this.edad = edad/*"yyyy-MM-dd"*/;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setId(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCuenta() {
