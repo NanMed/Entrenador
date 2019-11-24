@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/all.css">
         <link href="css/formulario.css" rel="stylesheet">
 
-        <title>Registro paciente</title>
+        <title>Alta paciente</title>
     </head>
     <style>
         #name, #cuenta, #pestana, #nombre{

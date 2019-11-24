@@ -45,10 +45,10 @@ public class ShowColaboradores
                 aux.setId(res.getInt("ID"));
                 aux.setCuenta(res.getInt("cuenta"));
                 aux.setNombre(res.getString("nombre"));
-                aux.setNombre(res.getString("apellido"));
-                aux.setNombre(res.getString("edad"));
-                aux.setNombre(res.getString("genero"));
-                colaboradores.add(aux);
+                aux.setApellido(res.getString("apellido"));
+                aux.setEdad(res.getString("edad"));
+                aux.setGenero(res.getString("genero"));
+                colaboradores.add(aux); 
             }
 
 			stat.close();

@@ -11,7 +11,7 @@
         <link href="css/show2.css" rel="stylesheet">   
     </head>
     <style>
-        #test3, #test4, #cuenta, #pestana, #name{
+        #test3, #test4, #cuenta, #pestana, #name{ 
             display: none;
         }
         td{
@@ -52,6 +52,7 @@
                 <th>Apellido</th>
                 <th>Edad</th>
                 <th>Género</th>
+                <th></th> 
             </tr>
             <tr class="invisible">
                 <th></th>
@@ -60,14 +61,16 @@
                 <th></th>
                 <th></th>
                 <th></th> 
-                <th></th> 
-                <th></th> 
-                <th></th>                 
+                <th></th>                  
             </tr>
             <c:forEach items="${requestScope.colaboradores}" var="colab">
                 <tr>
                         <td>
                             <c:out value="${colab.id}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${colab.cuenta}" />
                             <br />
                         </td>
                         <td>
@@ -79,17 +82,26 @@
                             <br />
                         </td>
                         <td>
-                            <c:out value="${colab.cuenta}" />
-                            <br />
-                        </td>
-                        <td>
                             <c:out value="${colab.edad}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${proyecto.genero}" />
+                            <c:out value="${colab.genero}" />
                             <br />
-                        </td>                        
+                        </td>  
+
+                        <td>
+                            <form action ="./borrarColab" method="post">
+                                <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
+                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
+                                
+                            </form> 
+
+                            <br />
+                        </td>                      
                     </tr>
             </c:forEach>
         </table>

@@ -24,7 +24,7 @@ public class RegistroColab extends HttpServlet{
             String name = request.getParameter("nombre");
 			int cuentas = Integer.parseInt(request.getParameter("cuenta"));
             
-            int window= Integer.parseInt(request.getParameter("pestana"));
+            int window = Integer.parseInt(request.getParameter("pestana"));
 
             if(idValidation.charAt(0) < 48 || idValidation.charAt(0)>57 || (userValidation.charAt(0)!='2'&& userValidation.charAt(0)!='1')){
             	mensaje="¡Llena correctamente los datos!";
@@ -40,7 +40,7 @@ public class RegistroColab extends HttpServlet{
 				}
             } else{
                 int id = Integer.parseInt(request.getParameter("id"));
-                String nombre = request.getParameter("nombre");
+                String nombre = request.getParameter("nombres");
                 String apellido = request.getParameter("apellido");
                 int username = Integer.parseInt(request.getParameter("username"));
                 String password = request.getParameter("password");
@@ -61,7 +61,7 @@ public class RegistroColab extends HttpServlet{
     			
 
     			String sql = "INSERT INTO cuenta VALUES ("+ username+" ,'" +password+ "');";
-                String sql2 = "INSERT INTO colaborador values("+id+", '" + username + "', " + nombre + ", '"  + apellido + "', '"  + edad + "', "  + genero + ", '" + password +   "');";
+                String sql2 = "INSERT INTO colaborador values("+id+", " + username + ", '" + nombre + "', '"  + apellido + "', '"  + edad + "', '"  + genero + "', '" + password +   "');";
     			stat.executeUpdate(sql);
     			stat.executeUpdate(sql2);
     			stat.close();

@@ -1,4 +1,3 @@
-<!--quitar lo del id-->
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -12,14 +11,14 @@
         <link rel="stylesheet" href="css/all.css">
         <link href="css/formulario.css" rel="stylesheet">
 
-        <title>Alta colaborador</title>
+        <title>Alta Historico</title>
     </head>
-    <style> 
+    <style>
         #name, #cuenta, #pestana, #nombre{
             display: none;
         }
         body{
-            background-color: #698ed6;
+            background-color: #e6a400;
         }
         
     </style>
@@ -34,63 +33,64 @@
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
         </form> 
 
-        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo colaborador</h4>
-        <br>
-        <br>
+        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo Historico</h4>
 
-        <h4 class="text-center mt-2 font-weight-bold"> 
-            <c:out  value = "${requestScope.mensaje}"/> 
-        </h4>
-
-        
-
-        <form action="./registroColab" method="post" class="mt-5">
+        <form action="./registroCliente" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
                 <div class="section d-flex flex-column">
-                    <input type="text" id="id" name="id" class="input" required>            
-                    <span class="user_label">ID(Número)</span>
+                    <input type="text" id="idHistorico" name="idHistorico" class="input" required>            
+                    <span class="user_label">ID</span>
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="nombres" name="nombres" class="input" required>            
-                    <span class="user_label">Nombre</span>
+                    <input type="text" id="tiempo" name="tiempo" class="input" required>            
+                    <span class="user_label">Tiempo</span>
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="apellido" name="apellido" class="input" required>            
-                    <span class="user_label">Apellido</span> 
+                    <input type="text" id="clasificacion" name="clasificacion" class="input" required>            
+                    <span class="user_label">Clasificacion</span>
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="username" name="username" class="input" required>            
-                    <span class="user_label">Username (Número empezando con 1 o 2)</span>
-                </div>
-    
-                <div class="section d-flex flex-column">
-                    <input type="password" id="password" name="password" class="input" required>            
-                    <span class="user_label">Contraseña</span>
-                </div>
-                <!--Cambiar a tipo fecha-->
-                <div class="section d-flex flex-column">
-                    <input type="date" id="edad" name="edad" class="input" required>            
-                    <span class="user_label">Edad</span> 
-                </div>
+                    <input type="text" id="caidas" name="caidas" class="input" required>            
+                    <span class="user_label">Caidas</span>
+                </div>   
                 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="correo" name="genero" class="input" required>            
-                    <span class="user_label">Género (F/M)</span> 
+                    <input type="text" id="prueba2" name="prueba2" class="input" required>            
+                    <span class="user_label">Prueba 2</span> 
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="prueba1" name="prueba1" class="input" required>            
+                    <span class="user_label">Prueba 1</span> 
+                </div>
+                 <div class="section d-flex flex-column">
+                    <input type="text" id="sumaSppb" name="sumaSppb" class="input" required>            
+                    <span class="user_label">sumaSppb</span>
                 </div> 
+                 <div class="section d-flex flex-column">
+                    <input type="text" id="distancia" name="distancia" class="input" required>            
+                    <span class="user_label">Distancia</span>
+                </div> 
+                 <div class="section d-flex flex-column">
+                    <input type="text" id="idPaciente" name="idPaciente" class="input" required>            
+                    <span class="user_label">idPaciente</span>
+                </div> 
+
 
             </div>
             
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
             <input type="text" id="pestana" name="pestana" class="input" value="1"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.mensaje}"> 
             
             <input class="login_button" type="submit"  value="GUARDAR">
         
         </form>
+         
+
     </body>
 </html>
