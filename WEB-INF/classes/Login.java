@@ -12,7 +12,6 @@ public class Login extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-            PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/prueba.txt", "UTF-8");
             String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
@@ -27,25 +26,18 @@ public class Login extends HttpServlet{
 
             int usuarioA = Integer.parseInt(request.getParameter("username"));
             
-            String passwordA = request.getParameter("password");  
-
-            //writer.println("venga papaaaa2");
+            String passwordA = request.getParameter("password");
 
             Statement stat = con.createStatement();
 
             String sql ="select * from colaborador;";
 
-            //writer.println("venga papaaaa3");
             ResultSet res = stat.executeQuery(sql);
 
-            
-            //writer.println("venga papaaaa4");
             Vector<Colaborador> cuentas = new Vector<Colaborador>();
             int checkCuenta;
             String nombre="";
             boolean checkLog = false;
-            writer.println("venga papaaaa10");
-            writer.close();
             while(res.next()){
                 
                 if(res.getInt("cuenta")==usuarioA && res.getString("contrasenia").equals(passwordA)){
@@ -56,7 +48,6 @@ public class Login extends HttpServlet{
                 }
 
             }
-            //writer.println("venga papaaaa5");
             
 
             stat.close();

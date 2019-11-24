@@ -27,7 +27,7 @@
 		usuario
 	</param-name> 
 	<param-value>
-		escolares
+		root
 	</param-value> 
 </context-param>
 
@@ -39,7 +39,7 @@
 		pass
 	</param-name> 
 	<param-value>
-		mipass
+		PortgasDAce87373
 	</param-value> 
 </context-param>
 
@@ -54,17 +54,6 @@
 		escuela
 	</param-value> 
 </context-param> 
-
-<jsp-config>
-	<jsp-property-group>
-		<url-pattern>
-			*.jsp
-		</url-pattern>
-		<page-encoding>
-			UTF-8
-		</page-encoding>
-	</jsp-property-group>
-</jsp-config>
 
 
 </web-app>
