@@ -1,29 +1,32 @@
 package objetos;
 public class Cuenta{
-    private int username;
-    private String password;
+    private int ID;
+    private String contrasenia;
 
     public Cuenta(){
         
     }
 
-    public Cuenta (int username, String password){
-        this.username = username; 
-        this.password = password;
+    public Cuenta (int ID, String contrasenia){
+        this.ID = ID; 
+        this.contrasenia = contrasenia;
     }
 
-    public void setUsername(int username){
-        this.username = username;
+    public int getID() {
+        return ID;
     }
 
-    public int getUsername(){
-        return username;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public void setPassword(String password){
-        this.password = password;
+    public String getContrasenia() {
+        return contrasenia;
     }
-    public String getPassword(){
-        return password;
-    } 
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+   
 }
