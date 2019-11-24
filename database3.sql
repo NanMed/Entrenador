@@ -68,6 +68,8 @@ CREATE TABLE IF NOT EXISTS `colaborador`(
 	CONSTRAINT `colaborador_ibfk_1` FOREIGN KEY (`cuenta`) REFERENCES `cuenta` (`ID`)	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+insert into colaborador (ID, cuenta, nombre, apellido, edad, genero, contrasenia) values (1, 1, 'Nancy', 'Medina', '1999-02-18', 'F', 'admin');
+
 -- ---- TABLA DE HISTORIAL ----
 CREATE TABLE IF NOT EXISTS `historial`(
 	`idHistorial` int(11) NOT NULL AUTO_INCREMENT,

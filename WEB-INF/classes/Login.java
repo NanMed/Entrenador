@@ -44,8 +44,8 @@ public class Login extends HttpServlet{
             int checkCuenta;
             String nombre="";
             boolean checkLog = false;
-            writer.println("venga papaaaa10");
-            writer.close();
+            //writer.println("venga papaaaa10");
+            //writer.close();
             while(res.next()){
                 
                 if(res.getInt("cuenta")==usuarioA && res.getString("contrasenia").equals(passwordA)){

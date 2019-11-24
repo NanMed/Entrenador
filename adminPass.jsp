@@ -1,3 +1,4 @@
+<!--Checar que todas las rutas estén-->
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
@@ -105,9 +106,9 @@
 
             <form action="./Session" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Dar de alta entrenadores</h5>
+                    <h5 class="card-header card-title">Dar de alta colaboradores</h5>
                     <div class="card-body">
-                        <p class="card-text"> Agrega a un nuevo entrenador.</p>
+                        <p class="card-text"> Agrega a un nuevo colaborador.</p>
                             <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
                             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                             <input type="text" id="pestana" name="pestana" class="input" value="3"> 
@@ -118,7 +119,7 @@
                 </div>
             </form>
  
-            <form action="./ShowUsuarios" method="post">
+            <form action="./showColaboradores" method="post">
                     <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                         <h5 class="card-header card-title">Ver entrenadores</h5>
                         <div class="card-body">
@@ -158,6 +159,70 @@
                     </div>
             </form>
 
+            <form action="./" method="post">
+                    <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                        <h5 class="card-header card-title">Ver progreso</h5>
+                        <div class="card-body">
+                            <p class="card-text"> Observa el progreso de los pacientes. </p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">   
+                        </div>
+                    </div>
+            </form>
+
+            <form action="./" method="post">
+                    <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                        <h5 class="card-header card-title">Alta historial</h5>
+                        <div class="card-body">
+                            <p class="card-text"> Da de alta el historial del paciente. </p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Agregar">   
+                        </div>
+                    </div>
+            </form>
+
+            <form action="./" method="post">
+                    <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                        <h5 class="card-header card-title">Ver historial</h5>
+                        <div class="card-body">
+                            <p class="card-text"> Ve el historial del paciente. </p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">   
+                        </div>
+                    </div>
+            </form>
+
+            <form action="./" method="post">
+                    <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                        <h5 class="card-header card-title">Alta histórico</h5>
+                        <div class="card-body">
+                            <p class="card-text"> Da de alta el histórico del paciente. </p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Agregar">   
+                        </div>
+                    </div>
+            </form>
+
+            <form action="./" method="post">
+                    <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                        <h5 class="card-header card-title">Ver histórico</h5>
+                        <div class="card-body">
+                            <p class="card-text"> Ve el histórico del paciente. </p>
+                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">   
+                        </div>
+                    </div>
+            </form>
              
 
         </section>

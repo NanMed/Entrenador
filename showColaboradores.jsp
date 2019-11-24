@@ -1,10 +1,11 @@
+<!--Falta agregar el editar-->
 <!DOCTYPE HTML>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 
 <html>
     <head>
-        <title>Entrenadores</title>
+        <title>Colaboradores</title>
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
         <link href="css/show2.css" rel="stylesheet">   
@@ -32,7 +33,7 @@
         </form> 
         <br>
 
-        <form action ="./buscarWorker" method="post" id="above">
+        <form action ="./buscarColab" method="post" id="above">
             <select id="optBusq" name= "optBusq">
               <option value="All">All</option>
               <option value="Nombre">Nombre</option>
@@ -97,7 +98,7 @@
                         </td>
                 
                         <td>
-                            <form action ="./BorrarColab" method="post">
+                            <form action ="./borrarColab" method="post">
                                 <input type="text" id="test3" name="test3" class="input" value="${worker.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                                 <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
