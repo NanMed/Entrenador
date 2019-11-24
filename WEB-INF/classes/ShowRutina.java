@@ -50,7 +50,7 @@ public class ShowUsuarios extends HttpServlet{
 			stat.close();
             con.close();
 
-			request.setAttribute("colaboradores", colaboradores);
+			request.setAttribute("progreso", progreso);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
