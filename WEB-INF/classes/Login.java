@@ -12,10 +12,6 @@ public class Login extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-<<<<<<< HEAD
-=======
-            //PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/prueba.txt", "UTF-8");
->>>>>>> a52f89eafbd1075f6a6974d49367abc04d06c223
             String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");

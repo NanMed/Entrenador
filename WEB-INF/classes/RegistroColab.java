@@ -34,10 +34,10 @@ public class RegistroColab extends HttpServlet{
             	request.setAttribute("mensaje", mensaje);
 
 
-			RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaColaborador.jsp");
-				if(disp!=null){
-					disp.forward(request,response);
-				}
+			    RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaColaborador.jsp");
+			    if(disp!=null){
+			        disp.forward(request,response);
+		        }
             } else{
                 int id = Integer.parseInt(request.getParameter("id"));
                 String nombre = request.getParameter("nombres");

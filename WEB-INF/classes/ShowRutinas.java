@@ -1,20 +1,19 @@
-import java.io.*;
+	import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import objetos.Cuenta;
-import objetos.Paciente;
+import objetos.Rutina;
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/ShowPacientes")
-public class ShowPacientes extends HttpServlet{
+@WebServlet("/showRutinas")
+public class ShowRutinas extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
 			String password = getServletContext().getInitParameter("pass");
@@ -30,37 +29,32 @@ public class ShowPacientes extends HttpServlet{
 			
 			String nombre=request.getParameter("nombre");
 			int cuenta=Integer.parseInt(request.getParameter("cuenta"));
-            
             int window= Integer.parseInt(request.getParameter("pestana"));
 			
-			String sql2 = "SELECT * FROM paciente;";
+			String sql2 = "SELECT * FROM rutina;";
 
 			ResultSet res = stat.executeQuery(sql2);
 
-			Vector<Paciente> pacientes = new Vector<Paciente>();
+			Vector<Rutina> rutinas = new Vector<Rutina>();
 
             while(res.next()){
-                Paciente aux = new Paciente();
-                aux.setId(res.getInt("ID"));
-                aux.setCuenta(res.getInt("cuenta"));
-                aux.setNombre(res.getString("nombre"));
-                aux.setApellido(res.getString("apellido"));   
+                Rutina aux = new Rutina();
                 aux.setIdRutina(res.getInt("idRutina"));
-                aux.setEdad(res.getString("edad"));
-                aux.setTipoU(res.getString("tipo_u"));
-                aux.setGenero(res.getString("genero"));            
-                pacientes.add(aux);
+                aux.setVideo(res.getString("video"));
+                aux.setTexto(res.getString("texto"));
+                aux.setImagen(res.getString("imagen"));
+                rutinas.add(aux);
             }
 
 			stat.close();
             con.close();
 
-			request.setAttribute("pacientes", pacientes);
+			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
 
-			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showPacientes.jsp");
+			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showRutinas.jsp");
 
 			if(disp!=null){
 				disp.forward(request, response);
