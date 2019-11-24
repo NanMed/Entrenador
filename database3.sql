@@ -29,29 +29,6 @@ INSERT INTO `cuenta` (`ID`,`contrasenia`) VALUES
 (1,'admin'),
 (2,'adminE');
 
--- ---- TABLA DE PACIENTES ----
-
-CREATE TABLE IF NOT EXISTS `paciente`(
-	`ID` int(11) NOT NULL AUTO_INCREMENT,
-	`cuenta` int(21) NOT NULL,
-	`nombre` varchar(20) DEFAULT NULL,
-	`apellido` varchar(20) DEFAULT NULL,
-	`edad` date DEFAULT NULL,
-	`tipo_u` varchar(20) DEFAULT NULL,
-	`genero` varchar(20) DEFAULT NULL,
-	`idRutina` int(11) NOT NULL,
-	`contrasenia` int(11) NOT NULL,
-
-	PRIMARY KEY (`ID`),
-	KEY `cuenta` (`cuenta`),
-	KEY `idRutina` (`idRutina`),
-	CONSTRAINT `paciente_ibfk_1` FOREIGN KEY (`cuenta`) REFERENCES `cuenta` (`ID`),
-	CONSTRAINT `paciente_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
-	
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-DELETE FROM `paciente`;
-
 -- ---- TABLA DE COLABORADOR ----
 
 CREATE TABLE IF NOT EXISTS `colaborador`(
@@ -70,82 +47,34 @@ CREATE TABLE IF NOT EXISTS `colaborador`(
 
 insert into colaborador (ID, cuenta, nombre, apellido, edad, genero, contrasenia) values (1, 1, 'Nancy', 'Medina', '1999-02-18', 'F', 'admin');
 
--- ---- TABLA DE HISTORIAL ----
-CREATE TABLE IF NOT EXISTS `historial`(
-	`idHistorial` int(11) NOT NULL AUTO_INCREMENT,
-	`tiempo` int (20) NOT NULL,
-	`clasificacion` varchar(20) DEFAULT NULL,
-	`caidas` int(20) DEFAULT NULL,
-	`prueba2` varchar(20) DEFAULT NULL,
-	`prueba1` varchar(20) DEFAULT NULL,
-    `sumaSppb` varchar(20) DEFAULT NULL,
-    `distancia` varchar(20) DEFAULT NULL,
-    `idPaciente` int(11) NOT NULL,
+-- ---- TABLA DE PACIENTES ----
 
+CREATE TABLE IF NOT EXISTS `paciente`(
+	`ID` int(11) NOT NULL AUTO_INCREMENT,
+	`cuenta` int(21) NOT NULL,
+	`nombre` varchar(20) DEFAULT NULL,
+	`apellido` varchar(20) DEFAULT NULL,
+	`edad` date DEFAULT NULL,
+	`tipo_u` varchar(20) DEFAULT NULL,
+	`genero` varchar(20) DEFAULT NULL,
+	`idRutina` int(21) NOT NULL,
+	`contrasenia` int(11) NOT NULL,
+	`idMedico` int(11) NOT NULL,
+	`idEntrenador` int(11) NOT NULL,
 
-	PRIMARY KEY (`idHistorial`),
-	KEY `idPaciente` (`idPaciente`),
-	
-	CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`)
+	PRIMARY KEY (`ID`),
+	KEY `cuenta` (`cuenta`),
+	KEY `idRutina` (`idRutina`),
+	KEY `idMedico` (`idMedico`),
+	KEY `idEntrenador` (`idEntrenador`),
+	CONSTRAINT `paciente_ibfk_1` FOREIGN KEY (`cuenta`) REFERENCES `cuenta` (`ID`),
+	CONSTRAINT `paciente_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`),
+	CONSTRAINT `paciente_ibfk_3` FOREIGN KEY (`idMedico`) REFERENCES `colaborador` (`ID`),
+	CONSTRAINT `paciente_ibfk_4` FOREIGN KEY (`idEntrenador`) REFERENCES `colaborador` (`ID`)
 	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
--- ---- TABLA DE RUTINAS EN HISTORIAL ----
-
-CREATE TABLE IF NOT EXISTS `equilibrio`(
-	`idEquilibrio` int (20) NOT NULL AUTO_INCREMENT,
-    `piesjuntos` varchar(20) DEFAULT NULL,
-	`tandem`varchar(20) DEFAULT NULL,
-	`puntaje` int(20) DEFAULT NULL,
-	`semitandem` varchar(20) DEFAULT NULL,
-	
-	PRIMARY KEY (`idEquilibrio`)
-
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-CREATE TABLE IF NOT EXISTS `velocidad`(
-	`idVelocidad` int (20) NOT NULL AUTO_INCREMENT,
-	`tiempo1` int(20) DEFAULT NULL,
-	`tiempo2` varchar(20) DEFAULT NULL,
-	`distancias` int(20) DEFAULT NULL,
-	`puntaje` varchar(20) DEFAULT NULL,
-	
-	
-	PRIMARY KEY (`idVelocidad`)
-
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE IF NOT EXISTS `levantamiento`(
-	`idLevantamiento` int (20) NOT NULL AUTO_INCREMENT,
-	`tiempo1` int(20) DEFAULT NULL,
-	`puntaje` varchar(20) DEFAULT NULL,
-	
-	
-	PRIMARY KEY (`idLevantamiento`)
-
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-
--- ---- TABLA DE HISTORICO ----
-
-CREATE TABLE IF NOT EXISTS `historico`(
-	`idHistorico` int(11) NOT NULL AUTO_INCREMENT, 
-	`tiempo` int (20) NOT NULL,
-	`clasificacion` varchar(20) DEFAULT NULL,
-	`caidas` int(20) DEFAULT NULL,
-	`prueba2` varchar(20) DEFAULT NULL,
-	`prueba1` varchar(20) DEFAULT NULL,
-    `sumaSppb` varchar(20) DEFAULT NULL,
-    `distancia` varchar(20) DEFAULT NULL,
-    `idPaciente` int(11) NOT NULL,
-
-	PRIMARY KEY (`idHistorico`),
-	KEY `idPaciente` (`idPaciente`),
-	CONSTRAINT `historico_ibfk_2` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`)
-
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+DELETE FROM `paciente`;
 
 -- ---- TABLA DE PROGRESO ----
 
@@ -154,32 +83,28 @@ CREATE TABLE IF NOT EXISTS `progreso`(
 	`velocidad` int(10),
 	`resistencia` int(10),
 	`fuerza` int(10),	
-	
-	PRIMARY KEY (`idProgreso`)
+	`idRutina` int(21) NOT NULL,
+	`idPaciente` int(11) NOT NULL,
+	PRIMARY KEY (`idProgreso`),
+	KEY `idRutina` (`idRutina`),
+	KEY `idPaciente` (`idPaciente`),
+	CONSTRAINT `progreso_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
+	CONSTRAINT `progreso_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
 	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- ---- TABLA DE HISTORIAL RUTINAS ----
+-- ---- TABLA DE RUTINAS PACIENTE ----
 
-CREATE TABLE IF NOT EXISTS `historial_rutinas`(
+CREATE TABLE IF NOT EXISTS `rutinas_paciente`(
 	`id` int(11) NOT NULL,
-	`idHistorial` int(11) DEFAULT NULL,
-	`idHistorico` int(11) DEFAULT NUll,
-	`idVelocidad` int(11) NOT NULL,
-	`idLevantamiento` int(11) NOT NULL, 
-    `idEquilibrio` int(11) NOT NULL,
+	`idRutina` int(21) NOT NULL,
+	`idPaciente` int(11) NOT NULL,
 
 	PRIMARY KEY (`id`),
-	KEY `idHistorial` (`idHistorial`),
-	KEY `idHistorico` (`idHistorico`),
-	KEY `idVelocidad` (`idVelocidad`),
-	KEY `idLevantamiento` (`idLevantamiento`),
-	KEY `idEquilibrio` (`idEquilibrio`),
-	CONSTRAINT `hist_proyecto_ibfk_1` FOREIGN KEY (`idHistorial`) REFERENCES `historial` (`idHistorial`),
-	CONSTRAINT `hist_proyecto_ibfk_2` FOREIGN KEY (`idHistorico`) REFERENCES `historico` (`idHistorico`),
-	CONSTRAINT `hist_proyecto_ibfk_3` FOREIGN KEY (`idVelocidad`) REFERENCES `velocidad` (`idVelocidad`),
-	CONSTRAINT `hist_proyecto_ibfk_4` FOREIGN KEY (`idLevantamiento`) REFERENCES `levantamiento` (`idLevantamiento`),
-	CONSTRAINT `hist_proyecto_ibfk_5` FOREIGN KEY (`idEquilibrio`) REFERENCES `equilibrio` (`idEquilibrio`)
+	KEY `idRutina` (`idRutina`),
+	KEY `idPaciente` (`idPaciente`),
+	CONSTRAINT `rut_pac_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
+	CONSTRAINT `rut_pac_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -187,26 +112,37 @@ CREATE TABLE IF NOT EXISTS `historial_rutinas`(
 
 CREATE TABLE IF NOT EXISTS `registro`(
 	`idRegistro` int (11) NOT NULL AUTO_INCREMENT, 
-	`nombrePrueba` varchar(20) DEFAULT NULL,
-	`ritmoCInicial` varchar(20) DEFAULT NULL,
+	`eje1Levantamiento` varchar(20) DEFAULT NULL,
+	`intento1E1L` int(20) DEFAULT NULL,
+	`intento2E1L` int(20) DEFAULT NULL,
+	`eje1Velocidad` varchar(20) DEFAULT NULL,
+	`intento1E1V` int(20) DEFAULT NULL,
+	`intento2E1V` int(20) DEFAULT NULL,
+	`eje1Equilibrio` varchar(20) DEFAULT NULL,
+	`intento1E1E` int(20) DEFAULT NULL,
+	`intento2E1E` int(20) DEFAULT NULL,
+	`eje2Equilibrio` varchar(20) DEFAULT NULL,
+	`intento1E2E` int(20) DEFAULT NULL,
+	`intento2E2E` int(20) DEFAULT NULL,
+	`eje3Equilibrio` varchar(20) DEFAULT NULL,
+	`intento1E3E` int(20) DEFAULT NULL,
+	`intento2E3E` int(20) DEFAULT NULL,
 	`ritmoCFinal` varchar(20) DEFAULT NULL,
-	`componentes` varchar(20) DEFAULT NULL,
-	`intento1` varchar(10) DEFAULT NULL,
-	`intento2` varchar(10) DEFAULT NULL,
-	`pierna` varchar(10) DEFAULT NULL,
-	`brazo` varchar(10) DEFAULT NULL,
+	`ritmoCInicial` varchar(20) DEFAULT NULL,
 	`omni_gse` varchar(10) DEFAULT NULL,
 	`dia` datetime NOT NUll,
-	`idProgreso` int(20) NOT NULL,
+	`idProgreso` int(11) NOT NULL,
 	`idPaciente` int(11) NOT NULL,
+	`idRutina` int(21) NOT NULL,
 
 	
 	PRIMARY KEY (`idRegistro`),
 	KEY `idPaciente` (`idPaciente`),
 	KEY `idProgreso` (`idProgreso`),
-	
+	KEY `idRutina` (`idRutina`),
 	CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
-	CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idProgreso`) REFERENCES `progreso` (`idProgreso`)
+	CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idProgreso`) REFERENCES `progreso` (`idProgreso`),
+	CONSTRAINT `progreso_ibfk_3` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
 	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
