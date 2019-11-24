@@ -12,7 +12,7 @@ public class Login extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-            PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/prueba.txt", "UTF-8");
+            //PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/prueba.txt", "UTF-8");
             String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");

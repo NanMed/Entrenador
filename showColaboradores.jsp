@@ -11,7 +11,7 @@
         <link href="css/show2.css" rel="stylesheet">   
     </head>
     <style>
-        #test3, #test4, #cuenta, #name, #pestana{
+        #test3, #test4, #cuenta, #name, #pestana{ 
             display: none;
         }
         td{
@@ -56,6 +56,7 @@
                 <th>Edad</th>
                 <th>Género</th>
                 <th></th> 
+                <th></th> 
             </tr>
 
             <tr class="invisible">
@@ -65,6 +66,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th> 
                 <th></th>  
             </tr>
             
@@ -99,11 +101,24 @@
                 
                         <td>
                             <form action ="./borrarColab" method="post">
-                                <input type="text" id="test3" name="test3" class="input" value="${worker.id}"> 
+                                <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                                 <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                                 <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
                                 <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
+                                
+                            </form> 
+
+                            <br />
+                        </td>
+
+                        <td>
+                            <form action ="./editarColab" method="post">
+                                <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
+                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="Editar" id="boton_pro3">
                                 
                             </form> 
 

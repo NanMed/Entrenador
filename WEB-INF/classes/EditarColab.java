@@ -5,11 +5,12 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.Date;
+import objetos.Cuenta;
 import objetos.Colaborador;
 import javax.servlet.annotation.WebServlet;
 import java.util.Vector;
-@WebServlet("/buscarColab") 
-public class BuscarColab extends HttpServlet{
+@WebServlet("/editarColab") 
+public class EditarColab extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
@@ -23,27 +24,21 @@ public class BuscarColab extends HttpServlet{
             Connection con = DriverManager.getConnection(url,usuario,pass);
     
             Statement stat = con.createStatement();
+
+            int id = Integer.parseInt(request.getParameter("test3"));
             int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             String nombre = request.getParameter("name");
-            
-            String comboBChoice = request.getParameter("optBusq");
-            String busqueda = request.getParameter("valueBusca");
-            String sql = " ";
-            
-            if(comboBChoice.equals("Id")){
-                int id = Integer.parseInt(busqueda);
-                sql= "SELECT * FROM colaborador where ID="+id+";";
-            }
-            else if(comboBChoice.equals("Nombre")){
-                sql= "SELECT * FROM colaborador where nombre='"+busqueda+"';";
-            }
-            
-            else if(comboBChoice.equals("All")){
-                sql= "SELECT * FROM colaborador;";
-            }
+            int window = Integer.parseInt(request.getParameter("pestana"));
 
+            String sql = "Delete from colaborador where ID="+id+";";
+            stat.executeUpdate(sql);
 
-            ResultSet res = stat.executeQuery(sql);
+            String sql2 = "Delete from cuenta where ID="+id+";";
+            stat.executeUpdate(sql2);
+            
+            String sql3 = "SELECT * FROM colaborador;";
+
+            ResultSet res = stat.executeQuery(sql3);
 
             Vector<Colaborador> colaboradores = new Vector<Colaborador>();
 
@@ -54,21 +49,24 @@ public class BuscarColab extends HttpServlet{
                 aux.setNombre(res.getString("nombre"));
                 aux.setApellido(res.getString("apellido"));
                 aux.setEdad(res.getString("edad"));
-                aux.setGenero(res.getString("genero")); 
-                colaboradores.add(aux); 
+                aux.setGenero(res.getString("genero"));
+                colaboradores.add(aux);
             }
-            
+
             stat.close();
             con.close();
-            
+
             request.setAttribute("colaboradores", colaboradores);
             request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
-            RequestDispatcher disp =  getServletContext().getRequestDispatcher("/showColabBuscado.jsp");
+            request.setAttribute("response3", window);
+
+            RequestDispatcher disp = getServletContext().getRequestDispatcher("/showColaboradores.jsp");
 
             if(disp!=null){
-                disp.forward(request,response);
+                disp.forward(request, response);
             }
+            
 		}
 		catch(Exception e){
 			try{
@@ -81,10 +79,7 @@ public class BuscarColab extends HttpServlet{
             catch(Exception e3){
                 e3.printStackTrace();
             }   
-            }   
-          
+            }    
 		}
-
 	}	
-
 }

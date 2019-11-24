@@ -1,4 +1,4 @@
-<!--Falta cambiar la fecha por tipo date y quitar lo del id-->
+<!--quitar lo del id-->
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -53,7 +53,7 @@
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="nombres" name="nombre" class="input" required>            
+                    <input type="text" id="nombres" name="nombres" class="input" required>            
                     <span class="user_label">Nombre</span>
                 </div>
     
@@ -78,7 +78,7 @@
                 </div>
                 
                 <div class="section d-flex flex-column">
-                    <input type="email" id="correo" name="genero" class="input" required>            
+                    <input type="text" id="correo" name="genero" class="input" required>            
                     <span class="user_label">Género (F/M)</span> 
                 </div> 
 
