@@ -1,3 +1,4 @@
+<!--Falta cambiar la fecha por tipo date y quitar lo del id-->
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -11,9 +12,9 @@
         <link rel="stylesheet" href="css/all.css">
         <link href="css/formulario.css" rel="stylesheet">
 
-        <title>Registro entrenador</title>
+        <title>Alta colaborador</title>
     </head>
-    <style>
+    <style> 
         #name, #cuenta, #pestana, #nombre{
             display: none;
         }
@@ -33,7 +34,7 @@
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
         </form> 
 
-        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo entrenador</h4>
+        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo colaborador</h4>
         <br>
         <br>
 
@@ -43,7 +44,7 @@
 
         
 
-        <form action="./registro" method="post" class="mt-5">
+        <form action="./registroColab" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
                 <div class="section d-flex flex-column">
@@ -52,7 +53,7 @@
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="nombres" name="nombres" class="input" required>            
+                    <input type="text" id="nombres" name="nombre" class="input" required>            
                     <span class="user_label">Nombre</span>
                 </div>
     
@@ -70,31 +71,16 @@
                     <input type="password" id="password" name="password" class="input" required>            
                     <span class="user_label">Contraseña</span>
                 </div>
-    
+                <!--Cambiar a tipo fecha-->
                 <div class="section d-flex flex-column">
                     <input type="text" id="edad" name="edad" class="input" required>            
                     <span class="user_label">Edad</span> 
                 </div>
                 
                 <div class="section d-flex flex-column">
-                    <input type="email" id="correo" name="correo" class="input" required>            
-                    <span class="user_label">Correo</span> 
-                </div>
-    
-                <div class="section d-flex flex-column">
-                    <input type="text" id="telefono" name="telefono" class="input" required>            
-                    <span class="user_label">Teléfono (Máximo 8 dígitos)</span>
-                </div>
-    
-                <div class="section d-flex flex-column">
-                    <input type="text" id="direccion" name="direccion" class="input" required>            
-                    <span class="user_label">Dirección</span>
-                </div>
-    
-                <!--<div class="section d-flex flex-column">
-                    <input type="text" id="puesto" name="puesto" class="input" required>            
-                    <span class="user_label">Puesto</span>
-                </div> -->   
+                    <input type="email" id="correo" name="genero" class="input" required>            
+                    <span class="user_label">Género (F/M)</span> 
+                </div> 
 
             </div>
             
@@ -106,7 +92,5 @@
             <input class="login_button" type="submit"  value="GUARDAR">
         
         </form>
-         
-
     </body>
 </html>

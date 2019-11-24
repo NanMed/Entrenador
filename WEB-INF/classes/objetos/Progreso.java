@@ -9,9 +9,7 @@ public class Progreso{
     private int fuerza;  
 
 
-    public Progreso(){
-
-    }
+    public Progreso(){}
 
     public Progreso(int idProgreso, int idPaciente, int velocidad, int resistencia, int fuerza){
         this.idProgreso = idProgreso;

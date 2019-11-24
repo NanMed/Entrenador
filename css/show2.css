@@ -66,6 +66,17 @@ select {
     font-size: 15px;
     font-family: 'Raleway';
     border-radius: 6px;
+    color: white;
+    font-weight: bold;
+}
+
+#boton_editar{
+    border: 1px solid #dc3545;
+    background-color: yellow;
+    font-size: 15px;
+    font-family: 'Raleway';
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 #main_t{

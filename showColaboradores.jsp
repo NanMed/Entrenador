@@ -1,7 +1,11 @@
+<!--Falta agregar el editar-->
 <!DOCTYPE HTML>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
 <html>
     <head>
-        <title>Entrenadores</title>
+        <title>Colaboradores</title>
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
         <link href="css/show2.css" rel="stylesheet">   
@@ -29,7 +33,7 @@
         </form> 
         <br>
 
-        <form action ="./buscarWorker" method="post" id="above">
+        <form action ="./buscarColab" method="post" id="above">
             <select id="optBusq" name= "optBusq">
               <option value="All">All</option>
               <option value="Nombre">Nombre</option>
@@ -46,54 +50,65 @@
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>
-                <th>Velocidad</th>
-                <th>Resistencia</th>
-                <th>Fuerza</th>
+                <th>Cuenta</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th></th> 
             </tr>
 
             <tr class="invisible">
                 <th></th>
+                <th></th>
+                <th></th> 
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>  
             </tr>
             
-            <c:forEach items="${requestScope.progreso}" var="prog">
+            <c:forEach items="${requestScope.colaboradores}" var="col">
                 <tr>
                         <td>
-                            <c:out value="${prog.id}" />
+                            <c:out value="${col.id}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${pro.velocidad}" />
+                            <c:out value="${col.cuenta}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${pro.resistencia}" />
+                            <c:out value="${col.nombre}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${pro.fuerza}" />
+                            <c:out value="${col.apellido}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${col.edad}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${col.genero}" />
                             <br />
                         </td>
                 
                         <td>
-                            <form action ="./borrarProgreso" method="post">
-                                <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
+                            <form action ="./borrarColab" method="post">
+                                <input type="text" id="test3" name="test3" class="input" value="${worker.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                                 <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                                 <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
                                 <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
-                            </form>
+                                
+                            </form> 
+
+                            <br />
                         </td>
-                        <td>
-                            <form action ="./editarProgreso" method="post">
-                                <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
-                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
-                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
-                                <input class="proyecto_buton btn btn-success" type="submit"  value="editar" id="boton_editar">
-                            </form>
-                        </td>   
                 </tr>
             </c:forEach>
         </table>
