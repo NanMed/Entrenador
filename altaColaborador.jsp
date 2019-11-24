@@ -19,7 +19,7 @@
             display: none;
         }
         body{
-            background-color: #e6a400;
+            background-color: #698ed6;
         }
         
     </style>
@@ -73,7 +73,7 @@
                 </div>
                 <!--Cambiar a tipo fecha-->
                 <div class="section d-flex flex-column">
-                    <input type="text" id="edad" name="edad" class="input" required>            
+                    <input type="date" id="edad" name="edad" class="input" required>            
                     <span class="user_label">Edad</span> 
                 </div>
                 
