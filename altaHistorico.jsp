@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/all.css">
         <link href="css/formulario.css" rel="stylesheet">
 
-        <title>Alta Historial</title>
+        <title>Alta Historico</title>
     </head>
     <style>
         #name, #cuenta, #pestana, #nombre{
@@ -33,13 +33,13 @@
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
         </form> 
 
-        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo Historial</h4>
+        <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo Historico</h4>
 
         <form action="./registroCliente" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
                 <div class="section d-flex flex-column">
-                    <input type="text" id="idHistorial" name="idHistorial" class="input" required>            
+                    <input type="text" id="idHistorico" name="idHistorico" class="input" required>            
                     <span class="user_label">ID</span>
                 </div>
     
