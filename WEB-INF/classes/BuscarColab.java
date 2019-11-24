@@ -50,10 +50,10 @@ public class BuscarColab extends HttpServlet{
             while(res.next()){
                 Colaborador aux = new Colaborador();
                 aux.setId(res.getInt("ID"));
-                aux.setCuenta(res.getString("cuenta"));
+                aux.setCuenta(res.getInt("cuenta"));
                 aux.setNombre(res.getString("nombre"));
                 aux.setApellido(res.getString("apellido"));
-                aux.setEdad(res.getInt("edad"));
+                aux.setEdad(res.getString("edad"));
                 aux.setGenero(res.getString("genero")); 
                 colaboradores.add(aux);
             }
