@@ -35,21 +35,25 @@
         <c:forEach items="${requestScope.rutinas}" var="rutina">
             <form action="./guardarCambiosRutina" method="post" class="mt-5">
                 <div id="registro" class="row justify-content-center mx-0">
+
                     <div class="section d-flex flex-column">
-                        <input type="text" id="video" name="video" class="input" placeholder="${rutina.nombre}" required>            
+                        <input type="text" id="idRutina" name="idRutina" class="input" value="${rutina.idRutina}" readonly>  
+                        <span class="user_label">id</span>
+                    </div>
+                    <div class="section d-flex flex-column">
+                        <input type="text" id="video" name="video" class="input" value="${rutina.video}" required>            
                         <span class="user_label">video</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="video" name="video" class="input" placeholder="${rutina.nombre}" required>            
+                        <input type="text" id="texto" name="texto" class="input" value="${rutina.texto}" required>            
                         <span class="user_label">texto</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="video" name="video" class="input" placeholder="${rutina.nombre}" required>            
+                        <input type="text" id="imagen" name="imagen" class="input" value="${rutina.imagen}" required>            
                         <span class="user_label">imagen</span>
                     </div>
                 </div>
                 
-                <input type="text" id="idRutina" name="idRutina" class="input" value="${requestScope.idRutina}">>
                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                 <input type="text" id="pestana" name="pestana" class="input" value="2"> 
                 <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
