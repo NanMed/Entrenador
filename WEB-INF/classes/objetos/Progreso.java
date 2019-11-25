@@ -5,20 +5,25 @@ public class Progreso{
     private int idProgreso;
     private int idPaciente;
     private int velocidad; 
-    private int resistencia;
-    private int fuerza;  
+    private int levantamiento;
+    private int equilibrio;  
     private int idRutina;
+    private String dia;
+    private int idRegistro;
+   
 
 
     public Progreso(){}
 
-    public Progreso(int idProgreso, int idPaciente, int idRutina, int velocidad, int resistencia, int fuerza){
+    public Progreso(int idProgreso, int idPaciente, int idRutina, int velocidad, int levantamiento, int equilibrio, String dia, int idRegistro){
         this.idProgreso = idProgreso;
         this.idPaciente = idPaciente;
         this.velocidad = velocidad;
-        this.resistencia = resistencia;
-        this.fuerza = fuerza;
-        this.idRutina=idRutina;
+        this.levantamiento = levantamiento;
+        this.equilibrio = equilibrio;
+        this.idRutina = idRutina;
+        this.dia = dia;
+        this.idRegistro = idRegistro;
       
     }
    
@@ -52,14 +57,30 @@ public class Progreso{
     public int getVelocidad(){
         return velocidad;
     }
-    public void setResistencia(int resistencia){
-        this.resistencia = resistencia; 
+    public void setLevantamiento(int levantamiento){
+        this.levantamiento = levantamiento; 
     }
-    public int getResistencia(){
-        return resistencia;
+    public int getLevantamiento(){
+        return levantamiento;
     }
-   public void setFuerza(int fuerza){
-        this.fuerza = fuerza; 
+    public void setEquilibrio(int equilibrio){
+        this.equilibrio = equilibrio; 
     }
+    public int getEquilibrio(){
+        return equilibrio;
+    }
+    public void setDia(String dia){
+        this.dia = dia; 
+    }
+    public String getDia(){
+        return dia;
+    }
+    public void setIdRegistro(int idRegistro){
+        this.idRegistro = idRegistro; 
+    }
+    public int getIdRegistro(){
+        return idRegistro;
+    }
+    
     
 }

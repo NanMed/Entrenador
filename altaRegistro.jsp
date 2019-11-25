@@ -27,7 +27,7 @@
 
         <form action ="./Session" method= "post">
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="4"> 
             <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
 
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
@@ -38,6 +38,11 @@
         <form action="./altaRegistro" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
+                <div class="section d-flex flex-column">
+                    <input type="text" id="eje1Levantamiento" name="id" class="input" required>            
+                    <span class="user_label">Id registro</span>
+                </div>
+    
                 <div class="section d-flex flex-column">
                     <input type="text" id="eje1Levantamiento" name="eje1Levantamiento" class="input" required>            
                     <span class="user_label">Ejercicio 1: Levantamiento</span>
@@ -59,7 +64,7 @@
                 </div>   
                 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="ntento1E1V" name="ntento1E1V" class="input" required>            
+                    <input type="text" id="ntento1E1V" name="intento1E1V" class="input" required>            
                     <span class="user_label">Intento 1</span> 
                 </div>
 
@@ -117,8 +122,18 @@
                     <span class="user_label">OMNI-GSE</span>
                 </div>
                 <div class="section d-flex flex-column">
-                    <input type="datetime-local" id="dia" name="dia" class="input" required>            
+                    <input type="date" id="dia" name="dia" class="input" required>            
                     <span class="user_label">Fecha</span>
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="dia" name="pacienteId" class="input" required>            
+                    <span class="user_label">Paciente id</span>
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="dia" name="rutinaId" class="input" required>            
+                    <span class="user_label">Rutina id</span>
                 </div>
 
             </div>

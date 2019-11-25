@@ -52,7 +52,7 @@ public class Session extends HttpServlet{
 			request.setAttribute("response2", cuenta);
 			request.setAttribute("response3", window);
 
-			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showVenta.jsp");
+			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showColaboradores.jsp");
 
 			if(window==1){
 				disp = getServletContext().getRequestDispatcher("/adminPass.jsp");
@@ -66,9 +66,9 @@ public class Session extends HttpServlet{
 				disp = getServletContext().getRequestDispatcher("/altaColaborador.jsp");
 			}
 			else if(window==4){
-				window=1;
+				window=4;
 				request.setAttribute("response3", window);
-				disp = getServletContext().getRequestDispatcher("/RegistroProducto.jsp");
+				disp = getServletContext().getRequestDispatcher("/pacientePass.jsp");
 
 			}
 			else if(window==5){

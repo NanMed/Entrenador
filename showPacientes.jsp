@@ -20,7 +20,7 @@
             text-align: center;
         }
         body{
-            background-color: #e6a400;
+            background-color: #698ed6;
         }
     </style>
     <body>
@@ -121,7 +121,7 @@
                     </td>
 
                     <td>
-                            <form action ="./VerProyectos" method="post">
+                            <form action ="./ShowProgreso" method="post">
                                 <input type="text" id="test4" name="test4" class="input" value="${paciente.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
                             <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
@@ -133,7 +133,7 @@
                             <br />
                     </td> 
                     <td>
-                            <form action ="./VerProyectos" method="post">
+                            <form action ="./ShowHistorial" method="post">
                                 <input type="text" id="test4" name="test4" class="input" value="${paciente.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
                             <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 

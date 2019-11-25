@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-
 <html>
     <head>
-        <title>Entrenadores</title>
+        <title>Progeso</title>
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
         <link href="css/show2.css" rel="stylesheet">   
@@ -32,7 +29,7 @@
         </form> 
         <br>
 
-        <form action ="./buscarWorker" method="post" id="above">
+      <!--   <form action ="./buscarWorker" method="post" id="above">
             <select id="optBusq" name= "optBusq">
               <option value="All">All</option>
               <option value="Nombre">Nombre</option>
@@ -44,70 +41,69 @@
             <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
             <input type="text" id="valueBusca" name="valueBusca" class="input" required> 
             <input class="proyecto_buton btn btn-success" type="submit"  value="Buscar" id="boton_pro">
-       </form>
+       </form> -->
 
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>
-                <th>Cuenta</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Género</th>
-                <th></th> 
+                <th>Velocidad</th>
+                <th>Levantamiento</th>
+                <th>Equilibrio</th>
+                <th>Dia</th>
+                <th>IdRutina</th>
+                <th>IdPaciente</th>
+                <th>IdRegistro</th>
             </tr>
 
             <tr class="invisible">
                 <th></th>
                 <th></th>
-                <th></th> 
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>  
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
             
-            <c:forEach items="${requestScope.colaboradores}" var="col">
+            <c:forEach items="${requestScope.progreso}" var="prog">
                 <tr>
                         <td>
-                            <c:out value="${col.id}" />
+                            <c:out value="${prog.idProgeso}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${col.cuenta}" />
+                            <c:out value="${prog.velocidad}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${col.nombre}" />
+                            <c:out value="${prog.levantamiento}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${col.apellido}" />
+                            <c:out value="${prog.equilibrio}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${col.edad}" />
+                            <c:out value="${prog.dia}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${col.genero}" />
+                            <c:out value="${prog.idRutina}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${prog.idPaciente}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${prog.idRegistro}" />
                             <br />
                         </td>
                 
-                        <td>
-                            <form action ="./BorrarColab" method="post">
-                                <input type="text" id="test3" name="test3" class="input" value="${worker.id}"> 
-                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
-                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
-                                <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
-                                
-                            </form> 
-
-                            <br />
-                        </td>
+                        
                 </tr>
             </c:forEach>
         </table>
