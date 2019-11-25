@@ -19,7 +19,7 @@
             text-align: center;
         }
         body{
-            background-color: #gray;
+            background-color: #698ed6;
         }
     </style>
     <body>

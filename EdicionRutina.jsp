@@ -17,6 +17,9 @@
         #pestana, #name, #cuenta, #nombre{
             display: none;
         }
+        body{
+            background-color: #698ed6;
+        }
         
     </style>
     <body>

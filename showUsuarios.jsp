@@ -17,7 +17,7 @@
             text-align: center;
         }
         body{
-            background-color: #43ab92;
+            background-color: #698ed6;
         }
     </style>
     <body>
