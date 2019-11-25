@@ -39,7 +39,7 @@ public class altaRegistro extends HttpServlet{
             String omni_gse= request.getParameter("omni_gse");
             String dia= request.getParameter("dia");
 
-			Registro newRegistro = new Registro(eje1Levantamiento,intento1E1L,intento2E1L,eje1Velocidad,intento1E1V,intento2E1V,eje1Equilibrio,intento1E1E, intento2E1E,eje2Equilibrio, intento1E2E,intento2E2E, eje3Equilibrio, intento1E3E, intento2E3E , ritmoCInicial,ritmoCIFinal, omni_gse, dia);
+			Registro newRegistro = new Registro(eje1Levantamiento,intento1E1L,intento2E1L,eje1Velocidad,intento1E1V,intento2E1V,eje1Equilibrio,intento1E1E,intento2E1E,eje2Equilibrio,intento1E2E,intento2E2E,eje3Equilibrio,intento1E3E,intento2E3E,ritmoCInicial,ritmoCFinal,omni_gse,dia);
 
             
             Class.forName("com.mysql.jdbc.Driver");
