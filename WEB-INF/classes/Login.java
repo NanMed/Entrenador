@@ -3,22 +3,24 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import objetos.Colaborador;
+import objetos.Paciente;
+
 import javax.servlet.annotation.WebServlet;
 import java.util.Vector;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet{
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response){
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
 
-		try{
+        try{
             String base = getServletContext().getInitParameter("base");
-			String usuario = getServletContext().getInitParameter("usuario");
+            String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
 
             
             Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
+            String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
             Connection con = DriverManager.getConnection(url,usuario,pass);
 
 
@@ -42,6 +44,24 @@ public class Login extends HttpServlet{
             while(res.next()){
                 if(res.getInt("cuenta")==usuarioA && res.getString("contrasenia").equals(passwordA)){
                     nombre=res.getString("nombre");
+                    checkLog=true;
+                    break;
+                }
+
+            }
+
+            String sql2 ="select * from paciente;";
+
+            ResultSet res2 = stat.executeQuery(sql2);
+
+            Vector<Paciente> paciente = new Vector<Paciente>();
+            int checkCuenta2;
+            String nombreP="";
+            boolean checkLog2 = false;
+
+            while(res2.next()){
+                if(res2.getInt("cuenta")==usuarioA && res2.getString("contrasenia").equals(passwordA)){
+                    nombreP=res2.getString("nombre");
                     checkLog=true;
                     break;
                 }
@@ -80,9 +100,9 @@ public class Login extends HttpServlet{
             if(disp!=null){
                 disp.forward(request,response);
             }
-		}
-		catch(Exception e){
-			try{
+        }
+        catch(Exception e){
+            try{
                 e.printStackTrace();
             }
             catch(Exception e2){
@@ -93,10 +113,10 @@ public class Login extends HttpServlet{
                 e3.printStackTrace();
             }   
             }   
-		}
+        }
 
-	}
+    }
 
-	
+    
 
 }

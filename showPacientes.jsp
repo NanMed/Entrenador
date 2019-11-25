@@ -10,8 +10,8 @@
         <link href="css/show2.css" rel="stylesheet">   
     </head>
     <style>
-        #test3, #cuenta, #pestana, #name{
-            display: none; 
+        #test3, #test4, #cuenta, #name, #pestana{
+            display: none;
         }
         td{
             text-align: center;
@@ -46,7 +46,13 @@
                 <th>Edad</th>  
                 <th>Tipo de usuario</th>
                 <th>Género</th> 
-                <th>Id Rutina</th>                    
+                <th>Id Rutina</th>
+                <th>Id Medico</th>     
+                <th>Id Entrenador</th>
+                <th>Ver Progreso</th>
+                <th>Ver Historial</th>
+                <th>Borrar</th>
+
             </tr>
 
             <tr class="invisible">
@@ -59,6 +65,11 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                
             </tr>
 
 
@@ -89,7 +100,7 @@
                         <br/>
                     </td>  
                     <td>
-                        <c:out value="${paciente.tipo_u}" />
+                        <c:out value="${paciente.tipoU}" />
                         <br/>
                     </td> 
                     <td>
@@ -99,7 +110,53 @@
                     <td>
                         <c:out value="${paciente.idRutina}" />
                         <br/>
-                    </td>                        
+                    </td>
+                    <td>
+                        <c:out value="${paciente.idMedico}" />
+                        <br/>
+                    </td>   
+                    <td>
+                        <c:out value="${paciente.idEntrenador}" />
+                        <br/>
+                    </td>
+
+                    <td>
+                            <form action ="./VerProyectos" method="post">
+                                <input type="text" id="test4" name="test4" class="input" value="${paciente.id}"> 
+                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
+                            <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="VerProgreso" id="boton_pro2" >
+                                
+                            </form> 
+
+                            <br />
+                    </td> 
+                    <td>
+                            <form action ="./VerProyectos" method="post">
+                                <input type="text" id="test4" name="test4" class="input" value="${paciente.id}"> 
+                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
+                            <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="VerHistorial" id="boton_pro2" >
+                                
+                            </form> 
+
+                            <br />
+                    </td>   
+                    <td>
+                            <form action ="./borrarPaciente" method="post">
+                                <input type="text" id="test3" name="test3" class="input" value="${paciente.id}"> 
+                                <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                                <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
+                                
+                            </form> 
+
+                            <br />
+                    </td>
+
                 </tr>
             </c:forEach>
         </table>

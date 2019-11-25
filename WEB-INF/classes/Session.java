@@ -105,7 +105,7 @@ public class Session extends HttpServlet{
 			} else if (window == 11) {
 				window=1;
 				request.setAttribute("response3", window);
-				disp = getServletContext().getRequestDispatcher("/showProjects.jsp");
+				disp = getServletContext().getRequestDispatcher("/altaRegistro.jsp");
 			} else if (window == 12) {
 				window = 1;
 				//request.setAttribute("test3", test3);

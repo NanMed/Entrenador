@@ -2,12 +2,11 @@ import java.sql.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*; 
-import objetos.Cliente;
-import objetos.Cuenta;
+import objetos.Registro;
 import javax.servlet.annotation.WebServlet;
-
+ 
 @WebServlet("/altaRegistro")
-public class altaRegistro extends HttpServlet{
+public class AltaRegistro extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
@@ -39,7 +38,7 @@ public class altaRegistro extends HttpServlet{
             String omni_gse= request.getParameter("omni_gse");
             String dia= request.getParameter("dia");
 
-			Registro newRegistro = new Registro(eje1Levantamiento,intento1E1L,intento2E1L,eje1Velocidad,intento1E1V,intento2E1V,eje1Equilibrio,intento1E1E, intento2E1E,eje2Equilibrio, intento1E2E,intento2E2E, eje3Equilibrio, intento1E3E, intento2E3E , ritmoCInicial,ritmoCIFinal, omni_gse, dia);
+			//Registro newRegistro = new Registro(eje1Levantamiento,intento1E1L,intento2E1L,eje1Velocidad,intento1E1V,intento2E1V,eje1Equilibrio,intento1E1E,intento2E1E,eje2Equilibrio,intento1E2E,intento2E2E,eje3Equilibrio,intento1E3E,intento2E3E,ritmoCInicial,ritmoCFinal,omni_gse,dia);
 
             
             Class.forName("com.mysql.jdbc.Driver");
@@ -53,7 +52,7 @@ public class altaRegistro extends HttpServlet{
             
             int window= Integer.parseInt(request.getParameter("pestana"));
 
-           String sql = "INSERT INTO registro values("+ieje1Levantamiento+", '" + intento1E1L + "', '" + intento2E1L + "', "  + eje1Velocidad + ", '"  + intento1E1V + "', '"  + intento2E1V+ "', '"  + eje1Equilibrio + "', '"  + intento1E1E + "' , '"  + intento2E1E + "', '"  + eje2Equilibrio + "', '"  + intento1E2E + "' , '"  + intento2E2E + "', '"  + eje3Equilibrio + "', '"  + intento1E3E + "' , '"  + intento2E3E + "', '"  + ritmoCInicial + "', '"  + ritmoCFinal + "' , '"  + omni_gse + "',  '"  + dia + "');";
+            String sql = "INSERT INTO registro values('"+eje1Levantamiento+"', " + intento1E1L + ", " + intento2E1L + ", '"  + eje1Velocidad + "', "  + intento1E1V + ", "  + intento2E1V+ ", ''"  + eje1Equilibrio + "', "  + intento1E1E + " , "  + intento2E1E + ", '"  + eje2Equilibrio + "', "  + intento1E2E + " , "  + intento2E2E + ", '"  + eje3Equilibrio + "', "  + intento1E3E + " , "  + intento2E3E + ", '"  + ritmoCInicial + "', '"  + ritmoCFinal + "' , '"  + omni_gse + "',  '"  + dia + "');";
             stat.executeUpdate(sql);
 
           
