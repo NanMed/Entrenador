@@ -145,7 +145,7 @@
                             <br />
                     </td>   
                     <td>
-                            <form action ="./BorrarWorker" method="post">
+                            <form action ="./borrarPaciente" method="post">
                                 <input type="text" id="test3" name="test3" class="input" value="${paciente.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                                 <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
