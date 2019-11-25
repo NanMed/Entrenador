@@ -89,4 +89,4 @@ public class altaRegistro extends HttpServlet{
 
 	
 
-}*/
+}
