@@ -41,8 +41,9 @@ public class Paciente{
     }
 
     public void setId(int id){
-        this.id = id; 
+        this.id = id;
     }
+
     public int getId(){
         return id;
     }
@@ -54,12 +55,12 @@ public class Paciente{
         return cuenta;
     }
 
-    public String getContrasenia(){
-        return contrasenia;
-    }
-
     public void setContrasenia(String contrasenia){
         this.contrasenia = contrasenia;
+    }
+
+    public String getContrasenia(){
+        return contrasenia;
     }
 
     public void setNombre(String nombre){

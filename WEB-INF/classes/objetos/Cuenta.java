@@ -12,18 +12,19 @@ public class Cuenta{
         this.password = password;
     }
 
-    public void setUsername(int username){
-        this.username = username;
-    }
-
-    public int getUsername(){
+    public int getUsername() {
         return username;
     }
 
-    public void setPassword(String password){
+    public void setUsername(int username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    public String getPassword(){
-        return password;
-    } 
 }

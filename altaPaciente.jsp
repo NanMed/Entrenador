@@ -35,16 +35,12 @@
 
         <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo paciente</h4>
 
-        <form action="./registroCliente" method="post" class="mt-5">
+        <form action="./registroPaciente" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
-                <div class="section d-flex flex-column">
-                    <input type="text" id="id" name="id" class="input" required>            
-                    <span class="user_label">ID</span>
-                </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="cuentaCliente" name="cuentaCliente" class="input" required>            
+                    <input type="text" id="cuentaCliente" name="cuentaPaciente" class="input" required>            
                     <span class="user_label">Cuenta</span>
                 </div>
     
@@ -71,6 +67,26 @@
                 <div class="section d-flex flex-column">
                     <input type="text" id="correo" name="tipo_u" class="input" required>            
                     <span class="user_label">Tipo de usuario</span> 
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="correo" name="genero" class="input" required>            
+                    <span class="user_label">Género</span> 
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="correo" name="id_rutina" class="input" required>            
+                    <span class="user_label">Id de la rutina</span> 
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="correo" name="id_medico" class="input" required>            
+                    <span class="user_label">Id del médico</span> 
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="correo" name="id_entrenador" class="input" required>            
+                    <span class="user_label">Id del entrenador</span> 
                 </div>
 
             </div>
