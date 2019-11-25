@@ -14,12 +14,13 @@ public class ShowPacientes extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-
+			//PrintWriter debug = new PrintWriter("Debug1.txt","UTF-8");
+			PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
 			String password = getServletContext().getInitParameter("pass");
 
-
+			
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
 		
@@ -38,32 +39,41 @@ public class ShowPacientes extends HttpServlet{
 			ResultSet res = stat.executeQuery(sql2);
 
 			Vector<Paciente> pacientes = new Vector<Paciente>();
-
+			
+			
             while(res.next()){
                 Paciente aux = new Paciente();
                 aux.setId(res.getInt("ID"));
                 aux.setCuenta(res.getInt("cuenta"));
                 aux.setNombre(res.getString("nombre"));
-                aux.setApellido(res.getString("apellido"));   
-                aux.setIdRutina(res.getInt("idRutina"));
+                aux.setApellido(res.getString("apellido"));  
                 aux.setEdad(res.getString("edad"));
-                aux.setTipoU(res.getString("tipo_u"));
-                aux.setGenero(res.getString("genero"));            
+                aux.setTipoU(res.getString("tipo_u"));     
+                aux.setGenero(res.getString("genero"));
+                aux.setIdRutina(res.getInt("idRutina"));  
+                aux.setContrasenia(res.getString("contrasenia")); 
+                aux.setIdMedico(res.getInt("idMedico"));   
+                aux.setIdEntrenador(res.getInt("idEntrenador"));       
                 pacientes.add(aux);
+
             }
 
 			stat.close();
             con.close();
-
+            
 			request.setAttribute("pacientes", pacientes);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
 
+
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showPacientes.jsp");
 
 			if(disp!=null){
+				 writer.print("Hola palan");
+				writer.close(); 
 				disp.forward(request, response);
+				
 			}
 		}
 		catch(Exception e){			
