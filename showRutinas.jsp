@@ -66,6 +66,33 @@
                         <c:out value="${rutinas.imagen}" />
                         <br/>
                     </td>
+
+                    <td>
+                        <form action="./modPacienteRutina" method="post">
+                            <input type="text" id="test3" name="test3" class="input" value="${rutinas.idRutina}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+                            <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
+
+                            <select id="selectionFilter" name="selectionFilter">
+                                <option value="n/a">Todo</option>
+                                <c:forEach items="${requestScope.pacientes}" var="pacientes">
+                                    <option value="${pacientes.nombre}"><c:out value="${pacientes.nombre}"/></option>
+                                </c:forEach>
+                            </select>
+                            
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Asignar" style="
+                            border: 1px solid #dc3545;
+                            background-color: green;
+                            font-size: 15px;
+                            font-family: 'Raleway';
+                            border-radius: 6px;
+                            font-weight: bold;
+                            color: white;
+                            ">
+                        </form>
+                    </td>
+
                     <td>
                         <form action ="./borrarRutina" method="post">
                             <input type="text" id="test3" name="test3" class="input" value="${rutinas.idRutina}"> 

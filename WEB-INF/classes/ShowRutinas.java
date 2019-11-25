@@ -4,6 +4,7 @@ import javax.servlet.http.*;
 import java.sql.*;
 import objetos.Cuenta;
 import objetos.Rutina;
+import objetos.Paciente;
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
@@ -46,9 +47,31 @@ public class ShowRutinas extends HttpServlet{
                 rutinas.add(aux);
             }
 
+            sql2 = "SELECT * FROM paciente;";
+			ResultSet res2 = stat.executeQuery(sql2);
+
+			Vector<Paciente> pacientes = new Vector<Paciente>();
+
+            while(res2.next()){
+                Paciente aux = new Paciente();
+                aux.setId(res2.getInt("ID"));
+                aux.setCuenta(res2.getInt("cuenta"));
+                aux.setContrasenia(res2.getString("contrasenia"));
+                aux.setNombre(res2.getString("nombre"));
+                aux.setApellido(res2.getString("apellido"));
+                aux.setEdad(res2.getString("edad"));
+                aux.setTipoU(res2.getString("tipo_u"));
+                aux.setGenero(res2.getString("genero"));
+                aux.setIdRutina(res2.getInt("idRutina"));
+                aux.setIdMedico(res2.getInt("idMedico"));
+                aux.setIdEntrenador(res2.getInt("idEntrenador"));
+                pacientes.add(aux);
+            }
+
 			stat.close();
             con.close();
 
+            request.setAttribute("pacientes", pacientes);
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
