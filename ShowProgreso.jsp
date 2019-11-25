@@ -69,7 +69,7 @@
             <c:forEach items="${requestScope.progreso}" var="prog">
                 <tr>
                         <td>
-                            <c:out value="${prog.idProgeso}" />
+                            <c:out value="${prog.idProgreso}" />
                             <br />
                         </td>
 
