@@ -61,7 +61,7 @@ public class ShowProgreso extends HttpServlet{
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
             //writer.print("paolamiamor10");
-			writer.close();
+			//writer.close();
 
 
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/ShowProgreso.jsp");

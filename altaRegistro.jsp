@@ -39,6 +39,11 @@
 
             <div id="registro" class="row justify-content-center mx-0">
                 <div class="section d-flex flex-column">
+                    <input type="text" id="eje1Levantamiento" name="id" class="input" required>            
+                    <span class="user_label">Id registro</span>
+                </div>
+    
+                <div class="section d-flex flex-column">
                     <input type="text" id="eje1Levantamiento" name="eje1Levantamiento" class="input" required>            
                     <span class="user_label">Ejercicio 1: Levantamiento</span>
                 </div>
