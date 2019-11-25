@@ -87,7 +87,6 @@ public class Registro{
     public int getIntento1E1L() {
         return intento1E1L;
     }
-int
     public void setIntento1E1L(int intento1E1L) {
         this.intento1E1L = intento1E1L;
     }
