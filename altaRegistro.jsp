@@ -117,7 +117,7 @@
                     <span class="user_label">OMNI-GSE</span>
                 </div>
                 <div class="section d-flex flex-column">
-                    <input type="datetime-local" id="dia" name="dia" class="input" required>            
+                    <input type="date" id="dia" name="dia" class="input" required>            
                     <span class="user_label">Fecha</span>
                 </div>
 

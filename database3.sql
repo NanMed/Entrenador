@@ -76,24 +76,6 @@ CREATE TABLE IF NOT EXISTS `paciente`(
 
 DELETE FROM `paciente`;
 
--- ---- TABLA DE PROGRESO ----
-
-CREATE TABLE IF NOT EXISTS `progreso`(
-	`idProgreso` int(11) NOT NULL AUTO_INCREMENT,
-	`velocidad` int(10),
-	`levantamiento` int(10),
-	`equilibrio` int(10),
-	`dia` date NOT NUll,	
-	`idRutina` int(21) NOT NULL,
-	`idPaciente` int(11) NOT NULL,
-	PRIMARY KEY (`idProgreso`),
-	KEY `idRutina` (`idRutina`),
-	KEY `idPaciente` (`idPaciente`),
-	CONSTRAINT `progreso_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
-	CONSTRAINT `progreso_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
-	
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
 -- ---- TABLA DE RUTINAS PACIENTE ----
 
 CREATE TABLE IF NOT EXISTS `rutinas_paciente`(
@@ -132,18 +114,36 @@ CREATE TABLE IF NOT EXISTS `registro`(
 	`ritmoCInicial` varchar(20) DEFAULT NULL,
 	`omni_gse` varchar(10) DEFAULT NULL,
 	`dia` date NOT NUll,
-	`idProgreso` int(11) NOT NULL,
 	`idPaciente` int(11) NOT NULL,
 	`idRutina` int(21) NOT NULL,
 
 	
 	PRIMARY KEY (`idRegistro`),
 	KEY `idPaciente` (`idPaciente`),
-	KEY `idProgreso` (`idProgreso`),
 	KEY `idRutina` (`idRutina`),
 	CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
-	CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idProgreso`) REFERENCES `progreso` (`idProgreso`),
 	CONSTRAINT `progreso_ibfk_3` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
+	
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ---- TABLA DE PROGRESO ----
+
+CREATE TABLE IF NOT EXISTS `progreso`(
+	`idProgreso` int(11) NOT NULL AUTO_INCREMENT,
+	`velocidad` int(10),
+	`levantamiento` int(10),
+	`equilibrio` int(10),
+	`dia` date NOT NUll,	
+	`idRutina` int(21) NOT NULL,
+	`idPaciente` int(11) NOT NULL,
+	`idRegistro` int (11) NOT NULL,
+	PRIMARY KEY (`idProgreso`),
+	KEY `idRutina` (`idRutina`),
+	KEY `idPaciente` (`idPaciente`),
+	KEY `idRegistro` (`idRegistro`),
+	CONSTRAINT `progreso_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
+	CONSTRAINT `progreso_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`),
+	CONSTRAINT `progreso_ibfk_3` FOREIGN KEY (`idRegistro`) REFERENCES `registro` (`idRegistro`)
 	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 

@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
  
 @WebServlet("/altaRegistro")
 public class AltaRegistro extends HttpServlet{
-	public void doPost(HttpServletRequest request, HttpServletResponse response){
+	public void doPost(HttpServletRequest request, HttpServletResponse response){ 
 
 		try{
 
