@@ -71,7 +71,7 @@
                     <input type="password" id="password" name="password" class="input" required>            
                     <span class="user_label">Contraseña</span>
                 </div>
-                <!--Cambiar a tipo fecha-->
+                
                 <div class="section d-flex flex-column">
                     <input type="date" id="edad" name="edad" class="input" required>            
                     <span class="user_label">Edad</span> 

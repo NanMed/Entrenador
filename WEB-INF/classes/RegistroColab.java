@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*; 
 import objetos.Colaborador;
 import objetos.Cuenta;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebServlet; 
 
 @WebServlet("/registroColab")
 public class RegistroColab extends HttpServlet{
@@ -35,9 +35,11 @@ public class RegistroColab extends HttpServlet{
 
 
 			    RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaColaborador.jsp");
+
 			    if(disp!=null){
 			        disp.forward(request,response);
 		        }
+                
             } else{
                 int id = Integer.parseInt(request.getParameter("id"));
                 String nombre = request.getParameter("nombres");
