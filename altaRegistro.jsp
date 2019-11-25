@@ -27,7 +27,7 @@
 
         <form action ="./Session" method= "post">
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="3"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="4"> 
             <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
 
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
