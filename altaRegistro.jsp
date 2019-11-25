@@ -59,7 +59,7 @@
                 </div>   
                 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="ntento1E1V" name="ntento1E1V" class="input" required>            
+                    <input type="text" id="intento1E1V" name="intento1E1V" class="input" required>            
                     <span class="user_label">Intento 1</span> 
                 </div>
 
@@ -119,6 +119,16 @@
                 <div class="section d-flex flex-column">
                     <input type="date" id="dia" name="dia" class="input" required>            
                     <span class="user_label">Fecha</span>
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="dia" name="pacienteId" class="input" required>            
+                    <span class="user_label">Paciente id</span>
+                </div>
+
+                <div class="section d-flex flex-column">
+                    <input type="text" id="dia" name="rutinaId" class="input" required>            
+                    <span class="user_label">Rutina id</span>
                 </div>
 
             </div>
