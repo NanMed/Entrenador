@@ -55,6 +55,28 @@ public class Registro{
         this.idPaciente = idPaciente;
 
     }
+    public Registro( String eje1Levantamiento, String intento1E1L,String intento2E1L,String eje1Velocidad, String intento1E1V, String intento2E1V, String eje1Equilibrio, String intento1E1E, String intento2E1E,String eje2Equilibrio, String intento1E2E, String intento2E2E, String eje3Equilibrio, String intento1E3E, String intento2E3E ,String ritmoCInicial, String ritmoCIFinal, String omni_gse, String dia){
+        this.eje1Levantamiento=eje1Levantamiento;
+        this.intento1E1L=intento1E1L;
+        this.intento2E1L= intento2E1L;
+        this.eje1Velocidad=eje1Velocidad;
+        this.intento1E1V=intento1E1V;
+        this.intento2E1V=intento2E1V;
+        this.eje1Equilibrio=eje1Equilibrio;
+        this.intento1E1E=intento1E1E;
+        this.intento2E1V=intento2E1E;
+        this.eje2Equilibrio=eje2Equilibrio;
+        this.intento1E2E=intento1E2E;
+        this.intento2E2E=intento2E2E;
+        this.eje3Equilibrio=eje3Equilibrio;
+        this.intento1E3E=intento1E3E;
+        this.intento2E3E=intento2E3E;
+        this.ritmoCInicial = ritmoCInicial; 
+        this.ritmoCIFinal= ritmoCIFinal; 
+        this.omni_gse = omni_gse;
+        this.dia = dia;
+
+    }
 
     public String getEje1Levantamiento() {
         return eje1Levantamiento;
