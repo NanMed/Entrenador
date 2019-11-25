@@ -81,8 +81,8 @@ DELETE FROM `paciente`;
 CREATE TABLE IF NOT EXISTS `progreso`(
 	`idProgreso` int(11) NOT NULL AUTO_INCREMENT,
 	`velocidad` int(10),
-	`resistencia` int(10),
-	`fuerza` int(10),	
+	`levantamiento` int(10),
+	`equilibrio` int(10),	
 	`idRutina` int(21) NOT NULL,
 	`idPaciente` int(11) NOT NULL,
 	PRIMARY KEY (`idProgreso`),
