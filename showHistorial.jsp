@@ -46,20 +46,29 @@
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>
-                <th>Velocidad</th>
-                <th>Levantamiento</th>
-                <th>Equilibrio</th>
+                <th>E1Levantamiento</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E1Velocidad</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E1Equilibrio</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E2Equilibrio</th>
+                <th>Intento1</th>
+                <!-- <th>Intento2</th> -->
+                <th>E3Equilibrio</th>
+                <th>Intento1</th>
+                <!-- <th>Intento2</th> -->
+                <th>RitmoCFinal</th>
+                <th>RitmoCInicial</th>
+                <th>Omni_gse</th>
                 <th>Dia</th>
-                <th>IdRutina</th>
-                <th>IdPaciente</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
-                <th>IdRegistro</th>
+                <!-- <th>IdRutina</th>
+                <th>IdPaciente</th> -->
+                
+                
             </tr>
 
             <tr class="invisible">
@@ -71,48 +80,88 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                
             </tr>
-            
             <c:forEach items="${requestScope.registro}" var="reg">
                 <tr>
                         <td>
-                            <c:out value="${reg.idProgreso}" />
+                            <c:out value="${reg.idRegistro}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${reg.velocidad}" />
+                            <c:out value="${reg.eje1Levantamiento}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${reg.levantamiento}" />
+                            <c:out value="${reg.intento1E1L}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${reg.equilibrio}" />
+                            <c:out value="${reg.eje1Velocidad}" />
                             <br />
                         </td>
+                        <td>
+                            <c:out value="${reg.intento1E1V}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.eje1Equilibrio}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.intento1E1E}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.eje2Equilibrio}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.intento1E2E}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.eje3Equilibrio}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.intento1E3E}" />
+                            <br />
+                        </td>
+
+                        <td>
+                            <c:out value="${reg.ritmoCInicial}" />
+                            <br />
+                        </td>
+
+                        <td>
+                            <c:out value="${reg.ritmoCFInal}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.omni_gse}" />
+                            <br />
+                        </td>
+
                         <td>
                             <c:out value="${reg.dia}" />
-                            <br />
-                        </td>
-                        <td>
-                            <c:out value="${reg.idRutina}" />
-                            <br />
-                        </td>
-                        <td>
-                            <c:out value="${reg.idPaciente}" />
-                            <br />
-                        </td>
-                        <td>
-                            <c:out value="${reg.idRegistro}" />
                             <br />
                         </td>
                 
                         
                 </tr>
             </c:forEach>
+            
+            
         </table>
 
         
