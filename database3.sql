@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `registro`(
 	KEY `idPaciente` (`idPaciente`),
 	KEY `idRutina` (`idRutina`),
 	CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`ID`),
-	CONSTRAINT `progreso_ibfk_3` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
+	CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idRutina`) REFERENCES `rutina` (`idRutina`)
 	
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
