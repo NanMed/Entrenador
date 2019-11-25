@@ -27,7 +27,7 @@
 
         <form action ="./Session" method= "post">
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="3"> 
             <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
 
             <input class="proyecto_buton fas fa-arrow-circle-left" type="submit"  value="Atrás" id="boton_pro">
@@ -59,7 +59,7 @@
                 </div>   
                 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="intento1E1V" name="intento1E1V" class="input" required>            
+                    <input type="text" id="ntento1E1V" name="intento1E1V" class="input" required>            
                     <span class="user_label">Intento 1</span> 
                 </div>
 
