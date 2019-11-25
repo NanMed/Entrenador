@@ -17,6 +17,9 @@
         td{
             text-align: center;
         } 
+        body{
+            background-color: #698ed6;
+        }
     </style>
     <body>
 
