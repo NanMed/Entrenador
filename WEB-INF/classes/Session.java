@@ -28,40 +28,21 @@ public class Session extends HttpServlet{
 			String nombre=request.getParameter("name");
 			int cuenta=Integer.parseInt(request.getParameter("cuenta"));
 			int window=Integer.parseInt(request.getParameter("pestana"));
+			//int test3=Integer.parseInt(request.getParameter("test3"));
 
 			Statement stat = con.createStatement();
 			
-			/*
-			Esto es para proyecto venta
-			*/
-			String sql4 = "select * from paciente;";			
-			ResultSet res2 = stat.executeQuery(sql4);
+			String sql = "select * from paciente;";			
+			ResultSet res = stat.executeQuery(sql);
 
 			Vector<Paciente> pacientes = new Vector<Paciente>();
 
-			while(res2.next()){
-				Paciente aux2 = new Paciente();
-				aux2.setId(res2.getInt("ID"));
-				aux2.setCuenta(res2.getInt("cuenta"));				
-				pacientes.add(aux2);
+			while(res.next()){
+				Paciente aux = new Paciente();
+				aux.setId(res.getInt("ID"));
+				aux.setCuenta(res.getInt("cuenta"));				
+				pacientes.add(aux);
 			}
-
-			// String sql5 = "select * from trabajador where cuenta="+cuenta+";";			
-			// ResultSet res3 = stat.executeQuery(sql5);
-
-			// Vector<Trabajador> trabajadores = new Vector<Trabajador>();
-
-			// while(res3.next()){				
-			// 	Trabajador aux3 = new Trabajador();
-			// 	aux3.setId(res3.getInt("idTrabajador"));
-			// 	aux3.setNombre(res3.getString("nombre"));
-			// 	aux3.setCuenta(res3.getInt("cuenta"));
-			// 	trabajadores.add(aux3);
-			// 	break;						
-			// }
-			/*
-			Fin del proyecto venta
-			*/
 
 			stat.close();
             con.close();
@@ -97,7 +78,7 @@ public class Session extends HttpServlet{
 			} else if(window == 6){
 				window=1;
 				request.setAttribute("response3", window);
-				disp = getServletContext().getRequestDispatcher("/altaClientes.jsp");
+				disp = getServletContext().getRequestDispatcher("/altaPaciente.jsp");
 			}
 			else if(window == 7){
 				window=1;
@@ -125,6 +106,11 @@ public class Session extends HttpServlet{
 				window=1;
 				request.setAttribute("response3", window);
 				disp = getServletContext().getRequestDispatcher("/showProjects.jsp");
+			} else if (window == 12) {
+				window = 1;
+				//request.setAttribute("test3", test3);
+				request.setAttribute("response3", window);
+				disp = getServletContext().getRequestDispatcher("/editarColab.jsp");
 			}
 
 			if(disp!=null){

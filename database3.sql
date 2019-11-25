@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `paciente`(
 	`tipo_u` varchar(20) DEFAULT NULL,
 	`genero` varchar(20) DEFAULT NULL,
 	`idRutina` int(21) NOT NULL,
-	`contrasenia` int(11) NOT NULL,
+	`contrasenia` varchar(20) NOT NULL,
 	`idMedico` int(11) NOT NULL,
 	`idEntrenador` int(11) NOT NULL,
 

@@ -113,9 +113,11 @@
                                 <select name= "asign" id="asign">
                                     <option>Seleccionar tarabajador</option>
                                     <c:forEach items="${requestScope.ids_nombres}" var="id_nombre">
-                                        <option value="${id_nombre.id}"><c:out value="${id_nombre.nombre}"/>-<c:out value="${id_nombre.id}"/></option>
+                                        <option value="${id_nombre.id}">
+                                        <c:out value="${id_nombre.nombre}"/> - <c:out value="${id_nombre.id}"/>
+                                    </option>
                                     </c:forEach>
-                                </select>
+                                </select> 
                                     <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                                     <input type="text" id="pestana" name="pestana" class="input" value="1"> 
                                     <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
