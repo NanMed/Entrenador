@@ -12,19 +12,19 @@ public class Cuenta{
         this.contrasenia = contrasenia;
     }
 
-    public int getID() {
+    public int getUsername() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setUsername(int ID) {
         this.ID = ID;
     }
 
-    public String getContrasenia() {
+    public String getPassword() {
         return contrasenia;
     }
 
-    public void setContrasenia(String contrasenia) {
+    public void setPassword(String contrasenia) {
         this.contrasenia = contrasenia;
     }
 

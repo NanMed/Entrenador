@@ -43,7 +43,13 @@ public class Paciente{
         this.idMedico=idMedico;
     }
 
-    
+    public void setId(int ID){
+        this.ID = ID;
+    }
+
+    public int getId(){
+        return ID;
+    }
 
     public void setCuenta(int cuenta){
         this.cuenta = cuenta;
@@ -99,11 +105,11 @@ public class Paciente{
         this.ID = ID;
     }
 
-    public String getTipo_u() {
+    public String getTipoU() {
         return tipo_u;
     }
 
-    public void setTipo_u(String tipo_u) {
+    public void setTipoU(String tipo_u) {
         this.tipo_u = tipo_u;
     }
 

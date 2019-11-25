@@ -67,8 +67,8 @@
                         <br/>
                     </td>
                     <td>
-                        <form action ="./" method="post">
-                            <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
+                        <form action ="./borrarRutina" method="post">
+                            <input type="text" id="test3" name="test3" class="input" value="${rutinas.idRutina}"> 
                             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                             <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                             <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
@@ -77,8 +77,8 @@
                         </form>
                     </td>
                     <td>
-                        <form action ="./" method="post">
-                            <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
+                        <form action ="./editarRutina" method="post">
+                            <input type="text" id="test3" name="test3" class="input" value="${rutinas.idRutina}"> 
                             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                             <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                             <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
