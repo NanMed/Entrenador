@@ -15,7 +15,7 @@ public class ShowPacientes extends HttpServlet{
 
 		try{
 			//PrintWriter debug = new PrintWriter("Debug1.txt","UTF-8");
-			PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
+			//PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
 			String password = getServletContext().getInitParameter("pass");
@@ -70,8 +70,8 @@ public class ShowPacientes extends HttpServlet{
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showPacientes.jsp");
 
 			if(disp!=null){
-				 writer.print("Hola palan");
-				writer.close(); 
+				//writer.print("Hola palan");
+				//writer.close(); 
 				disp.forward(request, response);
 				
 			}

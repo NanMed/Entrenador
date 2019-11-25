@@ -114,7 +114,7 @@
                 </div>
             </form>
 
-             <form action="./RecentVentas" method="post">
+             <form action="./Session" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                     <h5 class="card-header card-title">Registrar progreso</h5>
                     <div class="card-body">
@@ -125,7 +125,7 @@
                             <input class="proyecto_buton btn btn-success" type="submit"  value="Registrar">
                         
                     </div>
-                </div>
+                </div> 
             </form>
         </section>
             

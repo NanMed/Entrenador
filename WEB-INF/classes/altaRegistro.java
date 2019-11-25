@@ -4,9 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.*; 
 import objetos.Registro;
 import javax.servlet.annotation.WebServlet;
-
+ 
 @WebServlet("/altaRegistro")
-public class altaRegistro extends HttpServlet{
+public class AltaRegistro extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{

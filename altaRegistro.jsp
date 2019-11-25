@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<html>
+<html> 
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -120,15 +120,11 @@
                     <input type="datetime-local" id="dia" name="dia" class="input" required>            
                     <span class="user_label">Fecha</span>
                 </div>
-                 <div class="section d-flex flex-column">
-                    <input type="datetime-local" id="dia" name="dia" class="input" required>            
-                    <span class="user_label">Fecha</span>
-                </div>
 
             </div>
             
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="3"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
             
             <input class="login_button" type="submit"  value="GUARDAR">
