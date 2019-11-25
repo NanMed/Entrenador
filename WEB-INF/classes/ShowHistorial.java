@@ -2,13 +2,13 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import objetos.Progreso;
+import objetos.Registro;
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/ShowHistorial")
-public class ShowProgreso extends HttpServlet{
+public class ShowHistorial extends HttpServlet{
  
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
@@ -41,15 +41,33 @@ public class ShowProgreso extends HttpServlet{
 			
             while(res.next()){
                 Registro aux = new Registro();
-                aux.setIdProgreso(res.getInt("idProgreso"));
-                aux.setVelocidad(res.getInt("velocidad"));
-                aux.setLevantamiento(res.getInt("levantamiento"));
-                aux.setEquilibrio(res.getInt("equilibrio"));
-                aux.setDia(res.getString("dia"));
-                aux.setIdRutina(res.getInt("idRutina"));
-                aux.setIdPaciente(res.getInt("idPaciente"));
                 aux.setIdRegistro(res.getInt("idRegistro"));
-                progreso.add(aux);
+                aux.setEje1Levantamiento(res.getString("eje1Levantamiento"));
+                aux.setIntento1E1L(res.getInt("intento1E1L"));
+                aux.setIntento2E1L(res.getInt("intento2E1L"));
+                aux.setEje1Velocidad(res.getString("eje1Velocidad"));
+                aux.setIntento1E1V(res.getInt("intento1E1V"));
+                aux.setIntento2E1V(res.getInt("intento2E1V"));
+                aux.setEje1Equilibrio(res.getString("eje1Equilibrio"));
+                aux.setIntento1E1E(res.getInt("intento1E1E"));
+                aux.setIntento2E1E(res.getInt("intento2E1E"));
+                aux.setEje2Equilibrio(res.getString("eje2Equilibrio"));
+                aux.setIntento1E2E(res.getInt("intento1E2E"));
+                aux.setIntento2E2E(res.getInt("intento2E2E"));
+                aux.setEje3Equilibrio(res.getString("eje3Equilibrio"));
+                aux.setIntento1E3E(res.getInt("intento1E3E"));
+                aux.setIntento2E3E(res.getInt("intento2E3E"));
+
+                aux.setRitmoCFinal(res.getString("ritmoCFinal"));
+                aux.setRitmoCInicial(res.getString("ritmoCInicial"));
+                aux.setOmni_gse(res.getString("omni_gse"));
+                aux.setDia(res.getString("dia"));
+
+                aux.setIdPaciente(res.getInt("idPaciente"));
+                aux.setIdRutina(res.getInt("idRutina"));
+                
+               
+                registro.add(aux);
             }
 
 
@@ -61,7 +79,7 @@ public class ShowProgreso extends HttpServlet{
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
             //writer.print("paolamiamor10");
-			writer.close();
+			//writer.close();
 
 
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showHistorial.jsp");
