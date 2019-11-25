@@ -32,7 +32,7 @@
         <h4 class="text-center mt-2 font-weight-bold">Editar rutina</h4>
 
 
-        <c:forEach items="${requestScope.rutina}" var="rutina">
+        <c:forEach items="${requestScope.rutinas}" var="rutina">
             <form action="./guardarCambiosRutina" method="post" class="mt-5">
                 <div id="registro" class="row justify-content-center mx-0">
                     <div class="section d-flex flex-column">

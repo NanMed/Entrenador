@@ -6,8 +6,6 @@ public class Velocidad{
     private int distancias;
     private String puntaje;
     
-    
-
     public Velocidad(){
         
     }

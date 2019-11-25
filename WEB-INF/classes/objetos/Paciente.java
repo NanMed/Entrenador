@@ -40,20 +40,12 @@ public class Paciente{
         this.id_rutina = id_rutina;
     }
 
-<<<<<<< HEAD
-    public void setId(int ID){
-        this.ID = ID;
+    public void setId(int id){
+        this.id = id;
     }
 
     public int getId(){
-        return ID;
-=======
-    public void setId(int id){
-        this.id = id; 
-    }
-    public int getId(){
         return id;
->>>>>>> b026571f3565f7c64a230b6b942d7247a803dc21
     }
 
     public void setCuenta(int cuenta){
@@ -63,12 +55,12 @@ public class Paciente{
         return cuenta;
     }
 
-    public String getContrasenia(){
-        return contrasenia;
-    }
-
     public void setContrasenia(String contrasenia){
         this.contrasenia = contrasenia;
+    }
+
+    public String getContrasenia(){
+        return contrasenia;
     }
 
     public void setNombre(String nombre){
@@ -115,20 +107,11 @@ public class Paciente{
         return id_rutina;
     }
 
-<<<<<<< HEAD
-    public String getTipoU() {
-        return tipo_u;
-    }
-
-    public void setTipoU(String tipo_u) {
-        this.tipo_u = tipo_u;
-=======
     public void setIdMedico(int id_medico){
         this.id_medico = id_medico;
     }
     public int getIdMedico(){
         return id_medico;
->>>>>>> b026571f3565f7c64a230b6b942d7247a803dc21
     }
 
     public void setIdEntrenador(int id_entrenador){
