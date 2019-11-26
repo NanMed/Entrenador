@@ -21,6 +21,15 @@ public class Colaborador {
         this.genero = genero;
         this.contrasenia = contrasenia;        
     }
+    public Colaborador(int cuenta, String nombre, String apellido, String edad, String genero, String contrasenia){
+        this.id=id;
+        this.cuenta=cuenta;
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.edad=edad;
+        this.genero = genero;
+        this.contrasenia = contrasenia;        
+    }
 
     public String getEdad() {
         return edad;

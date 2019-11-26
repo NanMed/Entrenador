@@ -17,7 +17,6 @@ public class RegistroColab extends HttpServlet{
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
 
-            String idValidation = request.getParameter("id");
             String userValidation = request.getParameter("username");
             String mensaje = request.getParameter("mensaje");
 
@@ -26,7 +25,7 @@ public class RegistroColab extends HttpServlet{
             
             int window = Integer.parseInt(request.getParameter("pestana"));
 
-            if(idValidation.charAt(0) < 48 || idValidation.charAt(0)>57 || (userValidation.charAt(0)!='2'&& userValidation.charAt(0)!='1')){
+            if(userValidation.charAt(0)!='2'&& userValidation.charAt(0)!='1'){
             	mensaje="¡Llena correctamente los datos!";
             	request.setAttribute("response", name);
             	request.setAttribute("response2", cuentas);
@@ -41,7 +40,6 @@ public class RegistroColab extends HttpServlet{
 		        }
                 
             } else{
-                int id = Integer.parseInt(request.getParameter("id"));
                 String nombre = request.getParameter("nombres");
                 String apellido = request.getParameter("apellido");
                 int username = Integer.parseInt(request.getParameter("username"));
@@ -50,9 +48,9 @@ public class RegistroColab extends HttpServlet{
                 String genero = request.getParameter("genero");
 
     			Cuenta cuenta = new Cuenta(username, password);
-    			mensaje="¡Alta exitosa!";
+    			mensaje = "¡Alta exitosa!";
 
-    			Colaborador newColab = new Colaborador(id, username, nombre, apellido, edad, genero, password);
+    			Colaborador newColab = new Colaborador(username, nombre, apellido, edad, genero, password);
                 
                 Class.forName("com.mysql.jdbc.Driver");
     			String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
@@ -63,7 +61,7 @@ public class RegistroColab extends HttpServlet{
     			
 
     			String sql = "INSERT INTO cuenta VALUES ("+ username+" ,'" +password+ "');";
-                String sql2 = "INSERT INTO colaborador values("+id+", " + username + ", '" + nombre + "', '"  + apellido + "', '"  + edad + "', '"  + genero + "', '" + password +   "');";
+                String sql2 = "INSERT INTO colaborador (cuenta, nombre, apellido, edad, genero, contrasenia) values("+ username + ", '" + nombre + "', '"  + apellido + "', '"  + edad + "', '"  + genero + "', '" + password +   "');";
     			stat.executeUpdate(sql);
     			stat.executeUpdate(sql2);
     			stat.close();

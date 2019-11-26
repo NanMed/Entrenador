@@ -1,4 +1,4 @@
-<!--quitar lo del id-->
+<!---->
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -13,7 +13,7 @@
         <link href="css/formulario.css" rel="stylesheet">
 
         <title>Alta colaborador</title>
-    </head>
+    </head> 
     <style> 
         #name, #cuenta, #pestana, #nombre{
             display: none;
@@ -46,12 +46,7 @@
 
         <form action="./registroColab" method="post" class="mt-5">
 
-            <div id="registro" class="row justify-content-center mx-0">
-                <div class="section d-flex flex-column">
-                    <input type="text" id="id" name="id" class="input" required>            
-                    <span class="user_label">ID(Número)</span>
-                </div>
-    
+            <div id="registro" class="row justify-content-center mx-0">    
                 <div class="section d-flex flex-column">
                     <input type="text" id="nombres" name="nombres" class="input" required>            
                     <span class="user_label">Nombre</span>

@@ -35,6 +35,10 @@
 
         <h4 class="text-center mt-2 font-weight-bold" style="color: black">Nuevo paciente</h4>
 
+        <h4 class="text-center mt-2 font-weight-bold"> 
+            <c:out  value = "${requestScope.mensaje}"/> 
+        </h4>
+
         <form action="./registroPaciente" method="post" class="mt-5">
 
             <div id="registro" class="row justify-content-center mx-0">
@@ -50,7 +54,7 @@
                 </div>
     
                 <div class="section d-flex flex-column">
-                    <input type="text" id="telefono" name="nombres" class="input" required>            
+                    <input type="text" id="telefono" name="nombres" class="input" required>             
                     <span class="user_label">Nombre</span>
                 </div>   
                 
@@ -76,7 +80,7 @@
 
                 <div class="section d-flex flex-column">
                     <input type="text" id="correo" name="id_rutina" class="input" required>            
-                    <span class="user_label">Id de la rutina</span> 
+                    <span class="user_label">Id rutina</span> 
                 </div>
 
                 <div class="section d-flex flex-column">
@@ -94,6 +98,7 @@
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
             <input type="text" id="pestana" name="pestana" class="input" value="1"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
+            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.mensaje}">
             
             <input class="login_button" type="submit"  value="GUARDAR">
         

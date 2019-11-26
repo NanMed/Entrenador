@@ -97,11 +97,11 @@
                             font-size: 15px;
                             font-family: 'Raleway';
                             border-radius: 6px;
-                            font-weight: bold;
+                            font-weight: bold; 
                             color: white;
                             ">
                         </form>
-                    </td>
+                    </td> 
 
                     <td>
                         <form action ="./borrarRutina" method="post">

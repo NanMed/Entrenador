@@ -77,7 +77,7 @@ public class ShowRutinas extends HttpServlet{
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
 
-			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showRutinas.jsp");
+			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showRutinas.jsp"); 
 
 			if(disp!=null){
 				disp.forward(request, response);

@@ -1,4 +1,4 @@
-    import java.io.*;
+import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/modPacienteRutina")
 public class ModPacienteRutina extends HttpServlet{
-
+ 
     public void doPost(HttpServletRequest request, HttpServletResponse response){
 
         try{

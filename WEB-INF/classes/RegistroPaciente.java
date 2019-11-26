@@ -7,9 +7,9 @@ import objetos.Paciente;
 import objetos.Cuenta;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/registroPaciente")
+@WebServlet("/registroPaciente") 
 public class RegistroPaciente extends HttpServlet{
-	public void doPost(HttpServletRequest request, HttpServletResponse response){
+	public void doPost(HttpServletRequest request, HttpServletResponse response){ 
 
 		try{
 
@@ -49,6 +49,8 @@ public class RegistroPaciente extends HttpServlet{
             String sql2 = "INSERT INTO paciente (cuenta, nombre, apellido, edad, tipo_u, genero, idRutina, contrasenia, idMedico, idEntrenador) values(" + cuenta + ", '" + nombre + "', '"  + apellido + "', '"  + edad +   "', '"+ tipoU +"' , '" + genero + "', "+idRutina+", '"+ contrasenia+"', "+idMedico+", "+ idEntrenador+");";
 			stat.executeUpdate(sql);
 			stat.executeUpdate(sql2);
+
+            String mensaje = "Alta exitosa";
 			
 			stat.close();
 			con.close();
@@ -56,6 +58,7 @@ public class RegistroPaciente extends HttpServlet{
 			request.setAttribute("response", name);
             request.setAttribute("response2", cuentas);
             request.setAttribute("response3", window);
+            request.setAttribute("mensaje", mensaje);
 
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaPaciente.jsp");
 
