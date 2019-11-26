@@ -140,60 +140,6 @@
                     </div>
                 </div>
             </form>
-
-            <form action="./" method="post">
-                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Ver historial</h5>
-                    <div class="card-body">
-                            <p class="card-text">Ver los historiales de los pacientes.</p>
-                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
-                            <input type="text" id="pestana" name="pestana" class="input" value="2">  
-                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
-                    </div>
-                </div>
-            </form>
-
-            <form action="./" method="post">
-                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Ver historico</h5>
-                    <div class="card-body">
-                            <p class="card-text">Ver los historicos de los pacientes.</p>
-                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
-                            <input type="text" id="pestana" name="pestana" class="input" value="2">  
-                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
-                    </div>
-                </div>
-            </form>
-
-            <form action="./" method="post">
-                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Registrar Ejercicio.</h5>
-                    <div class="card-body">
-                            <p class="card-text">Registrar un nuevo ejercicio.</p>
-                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
-                            <input type="text" id="pestana" name="pestana" class="input" value="2">  
-                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
-                    </div>
-                </div>
-            </form>
-
-
-            <form action="./" method="post">
-                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                    <h5 class="card-header card-title">Ver progreso</h5>
-                    <div class="card-body">
-                            <p class="card-text">Ver el progreso de los pacientes</p>
-                            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
-                            <input type="text" id="pestana" name="pestana" class="input" value="2">  
-                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
-                    </div>
-                </div>
-            </form>
-
         </section>
             
 

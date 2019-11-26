@@ -40,10 +40,20 @@
                 <th>ID</th>
                 <th>video</th>
                 <th>texto</th>
-                <th>imagen</th>                 
+                <th>imagen</th> 
+                <th>Asignar paciente</th>  
+                <th></th>
+                <th></th>
+
             </tr>
 
             <tr class="invisible">
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
 

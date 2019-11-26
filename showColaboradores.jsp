@@ -56,7 +56,7 @@
                 <th>Edad</th>
                 <th>Género</th>
                 <th></th> 
-                <th></th> 
+                <!--<th></th>--> 
             </tr>
 
             <tr class="invisible">
@@ -67,7 +67,7 @@
                 <th></th>
                 <th></th>
                 <th></th> 
-                <th></th>  
+                <!--<th></th>--> 
             </tr>
             
             <c:forEach items="${requestScope.colaboradores}" var="col">
@@ -112,7 +112,7 @@
                             <br />
                         </td>
 
-                        <td>
+                        <!--<td>
                             <form action ="./Session" method="post">
                                 <input type="text" id="test3" name="test3" class="input" value="${col.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
@@ -123,7 +123,7 @@
                             </form> 
 
                             <br />
-                        </td>
+                        </td>-->
                 </tr>
             </c:forEach>
         </table>

@@ -101,7 +101,7 @@
         </h1>
       
         <section class="row justify-content-center align-items-center mx-0">
-            <form action="./Session" method="post">
+            <!-- <form action="./Session" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                     <h5 class="card-header card-title">Ver progreso</h5>
                     <div class="card-body">
@@ -112,7 +112,7 @@
                         <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
                     </div>
                 </div>
-            </form>
+            </form> -->
 
              <form action="./Session" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
