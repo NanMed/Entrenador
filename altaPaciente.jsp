@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="section d-flex flex-column">
-                    <select id="selectionFilter" name="selectionFilter">
+                    <select id="selectionFilter" name="selectionFilterR">
                         <option value="n/a">Id Rutina</option>
                         <c:forEach items="${requestScope.rutinas}" var="rutinas">
                             <option value="${rutinas.idRutina}"><c:out value="${rutinas.texto}"/> - <c:out value="${rutinas.idRutina}"/></option>
@@ -99,8 +99,8 @@
                 <div class="section d-flex flex-column">
                     <select id="selectionFilter" name="selectionFilterE">
                         <option value="n/a">Id Entrenador</option>
-                        <c:forEach items="${requestScope.colaboradores}" var="colab">
-                            <option value="${colab.cuenta}"><c:out value="${colab.cuenta}"/> - <c:out value="${colab.nombre}"/></option>
+                        <c:forEach items="${requestScope.colaboradores2}" var="colab2">
+                            <option value="${colab2.cuenta}"><c:out value="${colab2.cuenta}"/> - <c:out value="${colab2.nombre}"/></option>
                         </c:forEach>
                     </select>
                 </div>

@@ -67,6 +67,7 @@ public class AltaP extends HttpServlet{
             con.close();
 
             request.setAttribute("colaboradores", colaboradores);
+            request.setAttribute("colaboradores2", colaboradores);
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);

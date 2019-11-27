@@ -18,8 +18,12 @@ public class RegistroPaciente extends HttpServlet{
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
 
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
+            Connection con = DriverManager.getConnection(url,usuario,pass);
 
-            //int id = Integer.parseInt(request.getParameter("id"));
+            Statement stat = con.createStatement();
+
             int cuenta = Integer.parseInt(request.getParameter("cuentaPaciente"));
             String contrasenia = request.getParameter("contrasenia");
             String nombre = request.getParameter("nombres");
@@ -27,33 +31,50 @@ public class RegistroPaciente extends HttpServlet{
             String tipoU = request.getParameter("tipo_u");
             String edad = request.getParameter("edad");
             String genero = request.getParameter("genero");
-            int idRutina = Integer.parseInt(request.getParameter("id_rutina"));
-            int idMedico = Integer.parseInt(request.getParameter("id_medico"));
-            int idEntrenador = Integer.parseInt(request.getParameter("id_entrenador"));
+            int idRutina = 0;
+            int idMedico = 0;
+            int idEntrenador = 0;
 
-			Paciente newPaciente = new Paciente(34, cuenta, contrasenia, nombre, apellido, edad, tipoU, genero, idRutina, idMedico, idEntrenador);
+            String mensaje = "";
 
-			Cuenta newCuenta = new Cuenta(cuenta, contrasenia);
-            
-            Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
-            Connection con = DriverManager.getConnection(url,usuario,pass);
+            String selectionR = request.getParameter("selectionFilterR"); 
+            String selectionM = request.getParameter("selectionFilterM"); 
+            String selectionE = request.getParameter("selectionFilterE");  
+            System.out.println(selectionE);          
 
-			Statement stat = con.createStatement();
+            if(!selectionR.equals("n/a")){
+                idRutina = Integer.parseInt(selectionR);
+            } else {
+                mensaje = "Verifica el id de la rutina"; 
+            }
+
+            if(!selectionM.equals("n/a") && selectionM.charAt(0) == '1'){
+                idMedico = Integer.parseInt(selectionM);
+            } else {
+                mensaje = "Verifica el id del medico"; 
+            }
+
+            if(!selectionE.equals("n/a") && selectionE.charAt(0) == '2'){
+                idEntrenador = Integer.parseInt(selectionE);
+            } else {
+                mensaje = "Verifica el id del entrenador"; 
+            }
 
 			String name = request.getParameter("nombre");
 			int cuentas = Integer.parseInt(request.getParameter("cuenta"));
-            
             int window = Integer.parseInt(request.getParameter("pestana"));
+
+            System.out.println(idRutina + "id Rutina");
+            System.out.println(idMedico + "id medico");
+            System.out.println(idEntrenador + "id entrenador");
 
 			String sql = "INSERT INTO cuenta VALUES ("+ cuenta+" ,'" +contrasenia+ "');";
             String sql2 = "INSERT INTO paciente (cuenta, nombre, apellido, edad, tipo_u, genero, idRutina, contrasenia, idMedico, idEntrenador) values(" + cuenta + ", '" + nombre + "', '"  + apellido + "', '"  + edad +   "', '"+ tipoU +"' , '" + genero + "', "+idRutina+", '"+ contrasenia+"', "+idMedico+", "+ idEntrenador+");";
 			stat.executeUpdate(sql);
 			stat.executeUpdate(sql2);
 
-            String mensaje = "Alta exitosa";
+            mensaje = "Alta exitosa!";
 
-            //Todo lo de los id se tiene que hacer antes de hacer el insert para obtener los valores y hacer las comboraciones del combobox
             request.setAttribute("response", name);
             request.setAttribute("response2", cuentas);
             request.setAttribute("response3", window);

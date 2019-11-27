@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import java.sql.*;
 import objetos.Cuenta;
 import objetos.Rutina;
-import objetos.Paciente;
+import objetos.Paciente; 
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
