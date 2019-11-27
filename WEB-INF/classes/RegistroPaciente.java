@@ -1,10 +1,11 @@
-//
+//Comprobacion para jalar el numero del combobox
 import java.sql.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*; 
 import objetos.Paciente;
 import objetos.Cuenta;
+import objetos.Rutina;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/registroPaciente") 
@@ -51,14 +52,17 @@ public class RegistroPaciente extends HttpServlet{
 			stat.executeUpdate(sql2);
 
             String mensaje = "Alta exitosa";
+
+            //Todo lo de los id se tiene que hacer antes de hacer el insert para obtener los valores y hacer las comboraciones del combobox
+            request.setAttribute("response", name);
+            request.setAttribute("response2", cuentas);
+            request.setAttribute("response3", window);
+            request.setAttribute("mensaje", mensaje);
 			
 			stat.close();
 			con.close();
 
-			request.setAttribute("response", name);
-            request.setAttribute("response2", cuentas);
-            request.setAttribute("response3", window);
-            request.setAttribute("mensaje", mensaje);
+			
 
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaPaciente.jsp");
 

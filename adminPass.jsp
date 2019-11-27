@@ -132,7 +132,7 @@
                     </div>
             </form>
 
-            <form action="./Session" method="post">
+            <form action="./altaP" method="post">
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                     <h5 class="card-header card-title">Dar de alta pacientes</h5>
                     <div class="card-body">
@@ -148,7 +148,7 @@
  
             <form action="./ShowPacientes" method="post">
                     <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
-                        <h5 class="card-header card-title">Ver pacientes</h5>
+                        <h5 class="card-header card-title">Ver pacientes</h5> 
                         <div class="card-body">
                             <p class="card-text"> Observa a todos los pacientes y sus detalles. </p>
                             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 

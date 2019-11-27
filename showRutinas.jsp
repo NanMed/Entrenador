@@ -22,7 +22,7 @@
             background-color: #698ed6;
         }
     </style>
-    <body>
+    <body> 
 
         <br> <br>
         <form action ="./Session" method= "post">

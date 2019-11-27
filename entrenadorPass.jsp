@@ -136,7 +136,7 @@
                             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
                             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}">
                             <input type="text" id="pestana" name="pestana" class="input" value="2">  
-                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver">
+                        <input class="proyecto_buton btn btn-success" type="submit"  value="Ver"> 
                     </div>
                 </div>
             </form>

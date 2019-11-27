@@ -79,18 +79,30 @@
                 </div>
 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="correo" name="id_rutina" class="input" required>            
-                    <span class="user_label">Id rutina</span> 
+                    <select id="selectionFilter" name="selectionFilter">
+                        <option value="n/a">Id Rutina</option>
+                        <c:forEach items="${requestScope.rutinas}" var="rutinas">
+                            <option value="${rutinas.idRutina}"><c:out value="${rutinas.texto}"/> - <c:out value="${rutinas.idRutina}"/></option>
+                        </c:forEach>
+                    </select>
+                </div> 
+
+                <div class="section d-flex flex-column">
+                    <select id="selectionFilter" name="selectionFilterM">
+                        <option value="n/a">Id Medico</option>
+                        <c:forEach items="${requestScope.colaboradores}" var="colab">
+                            <option value="${colab.cuenta}"><c:out value="${colab.cuenta}"/> - <c:out value="${colab.nombre}"/></option>
+                        </c:forEach>
+                    </select>
                 </div>
 
                 <div class="section d-flex flex-column">
-                    <input type="text" id="correo" name="id_medico" class="input" required>            
-                    <span class="user_label">Id del médico</span> 
-                </div>
-
-                <div class="section d-flex flex-column">
-                    <input type="text" id="correo" name="id_entrenador" class="input" required>            
-                    <span class="user_label">Id del entrenador</span> 
+                    <select id="selectionFilter" name="selectionFilterE">
+                        <option value="n/a">Id Entrenador</option>
+                        <c:forEach items="${requestScope.colaboradores}" var="colab">
+                            <option value="${colab.cuenta}"><c:out value="${colab.cuenta}"/> - <c:out value="${colab.nombre}"/></option>
+                        </c:forEach>
+                    </select>
                 </div>
 
             </div>

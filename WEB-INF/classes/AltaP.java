@@ -2,15 +2,14 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-import objetos.Cuenta;
 import objetos.Rutina;
-import objetos.Paciente;
+import objetos.Colaborador;
 import java.util.Vector;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/showRutinas")
-public class ShowRutinas extends HttpServlet{
+@WebServlet("/altaP")
+public class AltaP extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
@@ -28,13 +27,13 @@ public class ShowRutinas extends HttpServlet{
 
 			Statement stat = con.createStatement();
 			
-			String nombre=request.getParameter("nombre");
-			int cuenta=Integer.parseInt(request.getParameter("cuenta"));
-            int window= Integer.parseInt(request.getParameter("pestana"));
+			String nombre = request.getParameter("nombre");
+			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
+            int window = Integer.parseInt(request.getParameter("pestana"));
 			
-			String sql2 = "SELECT * FROM rutina;";
+			String sql = "SELECT * FROM rutina;";
 
-			ResultSet res = stat.executeQuery(sql2);
+			ResultSet res = stat.executeQuery(sql);
 
 			Vector<Rutina> rutinas = new Vector<Rutina>();
 
@@ -47,37 +46,33 @@ public class ShowRutinas extends HttpServlet{
                 rutinas.add(aux);
             }
 
-            sql2 = "SELECT * FROM paciente;";
+            String sql2 = "SELECT * FROM colaborador;";
 			ResultSet res2 = stat.executeQuery(sql2);
 
-			Vector<Paciente> pacientes = new Vector<Paciente>();
+			Vector<Colaborador> colaboradores = new Vector<Colaborador>();
 
             while(res2.next()){
-                Paciente aux = new Paciente();
-                aux.setId(res2.getInt("ID"));
-                aux.setCuenta(res2.getInt("cuenta"));
-                aux.setContrasenia(res2.getString("contrasenia"));
-                aux.setNombre(res2.getString("nombre"));
-                aux.setApellido(res2.getString("apellido"));
-                aux.setEdad(res2.getString("edad"));
-                aux.setTipoU(res2.getString("tipo_u"));
-                aux.setGenero(res2.getString("genero"));
-                aux.setIdRutina(res2.getInt("idRutina"));
-                aux.setIdMedico(res2.getInt("idMedico"));
-                aux.setIdEntrenador(res2.getInt("idEntrenador"));
-                pacientes.add(aux);
+                Colaborador aux2 = new Colaborador();
+                aux2.setId(res2.getInt("ID"));
+                aux2.setCuenta(res2.getInt("cuenta"));
+                aux2.setNombre(res2.getString("nombre"));
+                aux2.setApellido(res2.getString("apellido"));
+                aux2.setEdad(res2.getString("edad"));
+                aux2.setGenero(res2.getString("genero"));
+                aux2.setContrasenia(res2.getString("contrasenia"));
+                colaboradores.add(aux2);
             }
 
 			stat.close();
             con.close();
 
-            request.setAttribute("pacientes", pacientes);
+            request.setAttribute("colaboradores", colaboradores);
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
 
-			RequestDispatcher disp = getServletContext().getRequestDispatcher("/showRutinas.jsp"); 
+			RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaPaciente.jsp"); 
 
 			if(disp!=null){
 				disp.forward(request, response);
