@@ -70,7 +70,7 @@ public class AltaR extends HttpServlet{
 			stat.close();
             con.close();
 
-            request.setAttribute("pacientes", pacientes);
+            request.setAttribute("pacientes", pacientes); 
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);

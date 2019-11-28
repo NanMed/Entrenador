@@ -30,7 +30,7 @@
                 <input type="password" id="password" name="password" class="input">            
                 <span class="user_label">Contraseña</span>                    
                 
-                <input class="login_button" type="submit"  value="ENTRAR">
+                <input class="login_button" type="submit"  value="ENTRAR"> 
             </div>
         </form>
 

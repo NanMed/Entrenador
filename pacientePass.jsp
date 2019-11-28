@@ -111,7 +111,7 @@
                             <input type="text" id="pestana" name="pestana" class="input" value="11"> 
                             <input class="proyecto_buton btn btn-success" type="submit"  value="Registrar">
                         
-                    </div>
+                    </div> 
                 </div> 
             </form>
         </section>

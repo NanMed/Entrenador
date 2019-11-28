@@ -41,7 +41,11 @@
 
         <form action="./altaRegistro" method="post" class="mt-5">
 
-            <div id="registro" class="row justify-content-center mx-0">    
+            <div id="registro" class="row justify-content-center mx-0"> 
+            <div class="section d-flex flex-column">
+                    <input type="text" id="id" name="idR" class="input" required>            
+                    <span class="user_label">ID del Registro</span>
+                </div>   
                 <div class="section d-flex flex-column">
                     <input type="text" id="eje1Levantamiento" name="eje1Levantamiento" class="input" required>            
                     <span class="user_label">Ejercicio 1: Levantamiento</span>
@@ -113,7 +117,7 @@
                     <span class="user_label">Ritmo cardíaco inicial</span>
                 </div>
                 <div class="section d-flex flex-column">
-                    <input type="text" id="ritmoCFinal" name="ritmoCInicial" class="input" required>            
+                    <input type="text" id="ritmoCFinal" name="ritmoCFinal" class="input" required>            
                     <span class="user_label">Ritmo cardíaco final</span>
                 </div>
                 <div class="section d-flex flex-column">
@@ -130,15 +134,6 @@
                         <option value="n/a">Id Rutina</option>
                         <c:forEach items="${requestScope.rutinas}" var="rutinas">
                             <option value="${rutinas.idRutina}"><c:out value="${rutinas.texto}"/> - <c:out value="${rutinas.idRutina}"/></option>
-                        </c:forEach>
-                    </select>
-                </div>
-
-                <div class="section d-flex flex-column">
-                    <select id="selectionFilter" name="selectionFilterP">
-                        <option value="n/a">Id Paciente</option>
-                        <c:forEach items="${requestScope.pacientes}" var="pacientes">
-                            <option value="${pacientes.id}"><c:out value="${pacientes.id}"/> - <c:out value="${pacientes.nombre}"/></option>
                         </c:forEach>
                     </select>
                 </div>
