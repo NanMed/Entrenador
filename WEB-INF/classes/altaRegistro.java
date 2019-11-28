@@ -26,7 +26,7 @@ public class altaRegistro extends HttpServlet{
             int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             int window = Integer.parseInt(request.getParameter("pestana"));
             
-            int idR = Integer.parseInt(request.getParameter("idR"));
+            int idR = 0;
             String eje1Levantamiento = request.getParameter("eje1Levantamiento");
             int intento1E1L = Integer.parseInt(request.getParameter("intento1E1L"));
             int intento2E1L = Integer.parseInt(request.getParameter("intento2E1L"));
@@ -68,10 +68,12 @@ public class altaRegistro extends HttpServlet{
 
             String sql = "INSERT INTO registro (idRegistro, eje1Levantamiento, intento1E1L, intento2E1L, eje1Velocidad, intento1E1V, intento2E1V, eje1Equilibrio, intento1E1E, intento2E1E, eje2Equilibrio, intento1E2E, intento2E2E, eje3Equilibrio, intento1E3E, intento2E3E, ritmoCFinal, ritmoCInicial, omni_gse, dia, idPaciente, idRutina) values("+idR+", '"+eje1Levantamiento+"', " + intento1E1L + ", " + intento2E1L + ", '"  + eje1Velocidad + "', "  + intento1E1V + ", "  + intento2E1V+ ", '"  + eje1Equilibrio + "', "  + intento1E1E + " , "  + intento2E1E + ", '"  + eje2Equilibrio + "', "  + intento1E2E + " , "  + intento2E2E + ", '"  + eje3Equilibrio + "', "  + intento1E3E + " , "  + intento2E3E + ", '"  + ritmoCFinal + "', '"  + ritmoCInicial + "' , '"  + omni_gse + "',  '"  + dia + "' , "+idPaciente+", "+idRutina+");";
             stat.executeUpdate(sql);
+            mensaje = "Registro exitoso";
 
             request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
+            request.setAttribute("mensaje", mensaje);
 
             //Condiciones
             int velocidadTemp = (int)(intento1E1V+intento2E1V)/2 ;
@@ -137,9 +139,13 @@ public class altaRegistro extends HttpServlet{
              
             int equilibrioFinal = resultE1+resultE2+resultE3;
 
-            //String sql3 = "Select LAST_INSERT_ID();";
-            //String idT = stat.executeQuery(sql3);
-            //int idReg = Integer.parseInt(idT);
+            String sql3 = "Select LAST_INSERT_ID() from registro;";
+            ResultSet res2 = stat.executeQuery(sql3);
+            while(res2.next()){
+                idR = res2.getInt(1);
+                System.out.println("Funciono con idR " + idR);
+            }
+
             String sql2 = "INSERT INTO progreso (velocidad, levantamiento, equilibrio, dia, idRutina, idPaciente, idRegistro) values( " + velocidad + ", " + levantamiento+ ", " +equilibrioFinal +", '"+dia+"', "+idRutina+", "+idPaciente+", "+idR+");";
 
             stat.executeUpdate(sql2);

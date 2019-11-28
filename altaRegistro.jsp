@@ -41,11 +41,7 @@
 
         <form action="./altaRegistro" method="post" class="mt-5">
 
-            <div id="registro" class="row justify-content-center mx-0"> 
-            <div class="section d-flex flex-column">
-                    <input type="text" id="id" name="idR" class="input" required>            
-                    <span class="user_label">ID del Registro</span>
-                </div>   
+            <div id="registro" class="row justify-content-center mx-0">   
                 <div class="section d-flex flex-column">
                     <input type="text" id="eje1Levantamiento" name="eje1Levantamiento" class="input" required>            
                     <span class="user_label">Ejercicio 1: Levantamiento</span>
