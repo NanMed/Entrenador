@@ -32,8 +32,9 @@ public class ShowHistorial extends HttpServlet{
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             
             int window= Integer.parseInt(request.getParameter("pestana"));
+            int userId= Integer.parseInt(request.getParameter("test4"));
 			//writer.print("zavala");
-			String sql2 = "SELECT * FROM registro;";
+			String sql2 = "SELECT * FROM registro where idPaciente="+userId+";";
 
 			ResultSet res = stat.executeQuery(sql2);
 

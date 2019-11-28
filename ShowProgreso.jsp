@@ -43,7 +43,7 @@
             <input type="text" id="valueBusca" name="valueBusca" class="input" required> 
             <input class="proyecto_buton btn btn-success" type="submit"  value="Buscar" id="boton_pro">
        </form> -->
-        <h1>HOLAAAAAMAMSM</h1>
+
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>

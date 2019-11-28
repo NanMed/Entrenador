@@ -32,8 +32,10 @@ public class ShowProgreso extends HttpServlet{
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             
             int window= Integer.parseInt(request.getParameter("pestana"));
-			writer.print("zavala");
-			String sql2 = "SELECT * FROM progreso;";
+            int userId= Integer.parseInt(request.getParameter("test4"));
+			
+			
+			String sql2 = "SELECT * FROM progreso where idPaciente="+userId+";";
 
 			ResultSet res = stat.executeQuery(sql2);
 
