@@ -5,6 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.Date;
 import objetos.Paciente;
+import objetos.Cuenta;
 import javax.servlet.annotation.WebServlet;
 import java.util.Vector;
 
@@ -24,17 +25,20 @@ public class BorrarPaciente extends HttpServlet{
     
             Statement stat = con.createStatement();
 
-            int id = Integer.parseInt(request.getParameter("test3"));
+            int cuentaId = Integer.parseInt(request.getParameter("test3"));
             int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             String nombre = request.getParameter("name");
             int window = Integer.parseInt(request.getParameter("pestana"));
 
-            String sql = "Delete from paciente where ID="+id+";";
+            String sql2 = "Delete from paciente where cuenta="+cuentaId+";";
+            stat.executeUpdate(sql2);
+
+            String sql = "Delete from cuenta where ID="+cuentaId+";";
             stat.executeUpdate(sql);
             
-            String sql2 = "SELECT * FROM paciente;";
+            String sql3 = "SELECT * FROM paciente;";
 
-            ResultSet res = stat.executeQuery(sql2);
+            ResultSet res = stat.executeQuery(sql3);
 
             Vector<Paciente> pacientes = new Vector<Paciente>();
             
