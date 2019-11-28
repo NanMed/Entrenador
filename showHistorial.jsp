@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <title>Historial</title>
@@ -144,7 +145,7 @@
                         </td>
 
                         <td>
-                            <c:out value="${reg.ritmoCFInal}" />
+                            <c:out value="${reg.ritmoCIFinal}" />
                             <br />
                         </td>
                         <td>
