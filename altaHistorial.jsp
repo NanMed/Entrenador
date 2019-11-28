@@ -18,7 +18,7 @@
             display: none;
         }
         body{
-            background-color: #e6a400;
+            background-color:#698ed6;
         }
         
     </style>
