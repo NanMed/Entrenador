@@ -71,38 +71,13 @@ public class Session extends HttpServlet{
 				disp = getServletContext().getRequestDispatcher("/pacientePass.jsp");
 
 			}
-			else if(window==5){
-				window=2;
-				request.setAttribute("response3", window);
-				disp = getServletContext().getRequestDispatcher("/RegistroProducto.jsp");
-			} else if(window == 6){
+			else if(window == 6){
 				window=1;
 				request.setAttribute("response3", window);
 				disp = getServletContext().getRequestDispatcher("/altaPaciente.jsp");
 			}
-			else if(window == 7){
-				window=1;
-				request.setAttribute("response3", window);
-				//request.setAttribute("clientes", clientes);
-            	//request.setAttribute("trabajadores", trabajadores);
-				disp = getServletContext().getRequestDispatcher("/ProyectoVenta.jsp");
-			}
-			else if(window==8){
-				window=2;
-				request.setAttribute("response3", window);
-				//request.setAttribute("clientes", clientes);
-            	//request.setAttribute("trabajadores", trabajadores);
-				disp = getServletContext().getRequestDispatcher("/ProyectoVenta.jsp");
-			}
-			else if(window==9){
-				window=10;
-				request.setAttribute("response3", window);
-				disp = getServletContext().getRequestDispatcher("/peticion.jsp");
-			}
-			else if(window==10){
-				disp = getServletContext().getRequestDispatcher("/clientPass.jsp");
-
-			} else if (window == 11) {
+			
+			else if (window == 11) {
 				window=1;
 				request.setAttribute("response3", window);
 				disp = getServletContext().getRequestDispatcher("/altaRegistro.jsp");

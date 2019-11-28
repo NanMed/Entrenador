@@ -14,8 +14,13 @@ public class altaRegistro extends HttpServlet{
             String base = getServletContext().getInitParameter("base");
             String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
+
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
+            Connection con = DriverManager.getConnection(url,usuario,pass);
+
+            Statement stat = con.createStatement();
             
-            int id = Integer.parseInt(request.getParameter("id"));
             String eje1Levantamiento = request.getParameter("eje1Levantamiento");
             int intento1E1L = Integer.parseInt(request.getParameter("intento1E1L"));
             int intento2E1L = Integer.parseInt(request.getParameter("intento2E1L"));
@@ -35,24 +40,33 @@ public class altaRegistro extends HttpServlet{
             String ritmoCFinal= request.getParameter("ritmoCFinal");
             String omni_gse= request.getParameter("omni_gse");
             String dia= request.getParameter("dia");
-            int idPaciente= Integer.parseInt(request.getParameter("pacienteId"));
-            int idRutina= Integer.parseInt(request.getParameter("rutinaId"));
+            int idPaciente= 0;
+            int idRutina= 0;
 
-            //Registro newRegistro = new Registro(eje1Levantamiento,intento1E1L,intento2E1L,eje1Velocidad,intento1E1V,intento2E1V,eje1Equilibrio,intento1E1E,intento2E1E,eje2Equilibrio,intento1E2E,intento2E2E,eje3Equilibrio,intento1E3E,intento2E3E,ritmoCInicial,ritmoCFinal,omni_gse,dia);
-
+            String selectionR = request.getParameter("selectionFilterR"); 
+            String selectionP = request.getParameter("selectionFilterP");   
+            String mensaje = "";
             
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
-            Connection con = DriverManager.getConnection(url,usuario,pass);
 
-            Statement stat = con.createStatement();
+            if(!selectionR.equals("n/a")){
+                idRutina = Integer.parseInt(selectionR);
+            } else {
+                mensaje = "Verifica el id de la rutina"; 
+            }
+
+            if(!selectionP.equals("n/a")){
+                idPaciente = Integer.parseInt(selectionP);
+            } else {
+                mensaje = "Verifica el id del paciente"; 
+            }
+
 
             String name=request.getParameter("nombre");
             int cuentas=Integer.parseInt(request.getParameter("cuenta"));
             
             int window= Integer.parseInt(request.getParameter("pestana"));
 
-            String sql = "INSERT INTO registro (idRegistro, eje1Levantamiento, intento1E1L, intento2E1L, eje1Velocidad, intento1E1V, intento2E1V, eje1Equilibrio, intento1E1E, intento2E1E, eje2Equilibrio, intento1E2E, intento2E2E, eje3Equilibrio, intento1E3E, intento2E3E, ritmoCFinal, ritmoCInicial, omni_gse, dia, idPaciente, idRutina) values("+id+", '"+eje1Levantamiento+"', " + intento1E1L + ", " + intento2E1L + ", '"  + eje1Velocidad + "', "  + intento1E1V + ", "  + intento2E1V+ ", '"  + eje1Equilibrio + "', "  + intento1E1E + " , "  + intento2E1E + ", '"  + eje2Equilibrio + "', "  + intento1E2E + " , "  + intento2E2E + ", '"  + eje3Equilibrio + "', "  + intento1E3E + " , "  + intento2E3E + ", '"  + ritmoCFinal + "', '"  + ritmoCInicial + "' , '"  + omni_gse + "',  '"  + dia + "' , "+idPaciente+", "+idRutina+");";
+            String sql = "INSERT INTO registro (eje1Levantamiento, intento1E1L, intento2E1L, eje1Velocidad, intento1E1V, intento2E1V, eje1Equilibrio, intento1E1E, intento2E1E, eje2Equilibrio, intento1E2E, intento2E2E, eje3Equilibrio, intento1E3E, intento2E3E, ritmoCFinal, ritmoCInicial, omni_gse, dia, idPaciente, idRutina) values('"+eje1Levantamiento+"', " + intento1E1L + ", " + intento2E1L + ", '"  + eje1Velocidad + "', "  + intento1E1V + ", "  + intento2E1V+ ", '"  + eje1Equilibrio + "', "  + intento1E1E + " , "  + intento2E1E + ", '"  + eje2Equilibrio + "', "  + intento1E2E + " , "  + intento2E2E + ", '"  + eje3Equilibrio + "', "  + intento1E3E + " , "  + intento2E3E + ", '"  + ritmoCFinal + "', '"  + ritmoCInicial + "' , '"  + omni_gse + "',  '"  + dia + "' , "+idPaciente+", "+idRutina+");";
             stat.executeUpdate(sql);
 
             request.setAttribute("response", name);
@@ -123,9 +137,12 @@ public class altaRegistro extends HttpServlet{
              
             int equilibrioFinal = resultE1+resultE2+resultE3;
 
-            String sql2 = "INSERT INTO progreso (velocidad, levantamiento, equilibrio, dia, idRutina, idPaciente, idRegistro) values( " + velocidad + ", " + levantamiento+ ", " +equilibrioFinal +", '"+dia+"', "+idRutina+", "+idPaciente+", "+id+");";
+            String sql3 = "Select LAST_INSERT_ID();";
+            //String idT = stat.executeQuery(sql3);
+            //int idReg = Integer.parseInt(idT);
+            //String sql2 = "INSERT INTO progreso (velocidad, levantamiento, equilibrio, dia, idRutina, idPaciente, idRegistro) values( " + velocidad + ", " + levantamiento+ ", " +equilibrioFinal +", '"+dia+"', "+idRutina+", "+idPaciente+", "+idT+");";
 
-            stat.executeUpdate(sql2);
+            //stat.executeUpdate(sql2);
 
             RequestDispatcher disp = getServletContext().getRequestDispatcher("/altaRegistro.jsp");
 
