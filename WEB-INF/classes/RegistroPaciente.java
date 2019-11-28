@@ -15,7 +15,6 @@ public class RegistroPaciente extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){ 
 
 		try{
-            PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
@@ -51,19 +50,18 @@ public class RegistroPaciente extends HttpServlet{
                 mensaje = "Verifica el id de la rutina"; 
             }
 
-            if(!selectionM.equals("n/a") && selectionM.charAt(0) == '1'){
+            if(!selectionM.equals("n/a")){
                 idMedico = Integer.parseInt(selectionM);
             } else {
                 mensaje = "Verifica el id del medico"; 
             }
 
-            if(!selectionE.equals("n/a") && selectionE.charAt(0) == '2'){
+            if(!selectionE.equals("n/a")){
                 idEntrenador = Integer.parseInt(selectionE);
             } else {
                 mensaje = "Verifica el id del entrenador"; 
             }
-            writer.print("paola");
-            writer.close();
+        
 			String name = request.getParameter("nombre");
 			int cuentas = Integer.parseInt(request.getParameter("cuenta"));
             int window = Integer.parseInt(request.getParameter("pestana"));
