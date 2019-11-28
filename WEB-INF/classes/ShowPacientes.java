@@ -1,7 +1,7 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
+import java.sql.*; 
 import objetos.Cuenta;
 import objetos.Paciente;
 import java.util.Vector;
