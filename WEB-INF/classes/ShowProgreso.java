@@ -13,12 +13,12 @@ public class ShowProgreso extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
 
 		try{
-			//PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
 			
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
 			String password = getServletContext().getInitParameter("pass");
-			//writer.print("omar");
+			writer.print("omar");
 
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
@@ -32,7 +32,7 @@ public class ShowProgreso extends HttpServlet{
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             
             int window= Integer.parseInt(request.getParameter("pestana"));
-			//writer.print("zavala");
+			writer.print("zavala");
 			String sql2 = "SELECT * FROM progreso;";
 
 			ResultSet res = stat.executeQuery(sql2);
@@ -40,8 +40,10 @@ public class ShowProgreso extends HttpServlet{
 			Vector<Progreso> progreso = new Vector<Progreso>();
 			
             while(res.next()){
+            	writer.print("entreee");
                 Progreso aux = new Progreso();
                 aux.setIdProgreso(res.getInt("idProgreso"));
+                writer.print(" ID: "+aux.getIdProgreso()+" ");
                 aux.setVelocidad(res.getInt("velocidad"));
                 aux.setLevantamiento(res.getInt("levantamiento"));
                 aux.setEquilibrio(res.getInt("equilibrio"));
@@ -56,12 +58,15 @@ public class ShowProgreso extends HttpServlet{
 			stat.close();
             con.close();
 
-			request.setAttribute("progreso", progreso);
+			request.setAttribute("progresos", progreso);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
-            //writer.print("paolamiamor10");
-			//writer.close();
+
+            writer.print("size: "+progreso.size()+ " !");
+            writer.print("paolamiamor10");
+            writer.print(nombre);
+			writer.close();
 
 
 			RequestDispatcher disp = getServletContext().getRequestDispatcher("/ShowProgreso.jsp");

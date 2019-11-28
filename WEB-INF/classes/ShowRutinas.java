@@ -70,7 +70,7 @@ public class ShowRutinas extends HttpServlet{
 
 			stat.close();
             con.close();
-
+            
             request.setAttribute("pacientes", pacientes);
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);

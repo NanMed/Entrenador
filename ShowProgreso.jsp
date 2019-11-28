@@ -42,7 +42,7 @@
             <input type="text" id="valueBusca" name="valueBusca" class="input" required> 
             <input class="proyecto_buton btn btn-success" type="submit"  value="Buscar" id="boton_pro">
        </form> -->
-
+        
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>
@@ -52,7 +52,7 @@
                 <th>Dia</th>
                 <th>IdRutina</th>
                 <th>IdPaciente</th>
-                <th>IdRegistro</th>
+                <th>IdRegistros</th>
             </tr>
 
             <tr class="invisible">
@@ -66,40 +66,40 @@
                 <th></th>
             </tr>
             
-            <c:forEach items="${requestScope.progreso}" var="prog">
+            <c:forEach items="${requestScope.progresos}" var="progreso">
                 <tr>
                         <td>
-                            <c:out value="${prog.idProgreso}" />
+                            <c:out value="${progreso.idProgreso}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${prog.velocidad}" />
+                            <c:out value="${progreso.velocidad}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${prog.levantamiento}" />
+                            <c:out value="${progreso.levantamiento}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${prog.equilibrio}" />
+                            <c:out value="${progreso.equilibrio}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${prog.dia}" />
+                            <c:out value="${progreso.dia}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${prog.idRutina}" />
+                            <c:out value="${progreso.idRutina}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${prog.idPaciente}" />
+                            <c:out value="${progreso.idPaciente}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${prog.idRegistro}" />
+                            <c:out value="${progreso.idRegistro}" />
                             <br />
                         </td>
                 

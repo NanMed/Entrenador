@@ -18,10 +18,11 @@ public class Progreso{
     public Progreso(int idProgreso, int idPaciente, int idRutina, int velocidad, int levantamiento, int equilibrio, String dia, int idRegistro){
         this.idProgreso = idProgreso;
         this.idPaciente = idPaciente;
+        this.idRutina = idRutina;
         this.velocidad = velocidad;
         this.levantamiento = levantamiento;
         this.equilibrio = equilibrio;
-        this.idRutina = idRutina;
+        
         this.dia = dia;
         this.idRegistro = idRegistro;
       
