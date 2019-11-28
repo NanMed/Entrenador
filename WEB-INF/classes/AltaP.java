@@ -27,7 +27,7 @@ public class AltaP extends HttpServlet{
 
 			Statement stat = con.createStatement();
 			
-			String nombre = request.getParameter("nombre");
+			String nombre = request.getParameter("name");
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             int window = Integer.parseInt(request.getParameter("pestana"));
 			
@@ -49,10 +49,12 @@ public class AltaP extends HttpServlet{
             String sql2 = "SELECT * FROM colaborador;";
 			ResultSet res2 = stat.executeQuery(sql2);
 
-			Vector<Colaborador> colaboradores = new Vector<Colaborador>();
+			Vector<Colaborador> medicos = new Vector<Colaborador>();
+			Vector<Colaborador> entrenadores = new Vector<Colaborador>();
 
             while(res2.next()){
                 Colaborador aux2 = new Colaborador();
+                
                 aux2.setId(res2.getInt("ID"));
                 aux2.setCuenta(res2.getInt("cuenta"));
                 aux2.setNombre(res2.getString("nombre"));
@@ -60,14 +62,20 @@ public class AltaP extends HttpServlet{
                 aux2.setEdad(res2.getString("edad"));
                 aux2.setGenero(res2.getString("genero"));
                 aux2.setContrasenia(res2.getString("contrasenia"));
-                colaboradores.add(aux2);
+                if (aux2.getCuenta() == 1) {
+                	medicos.add(aux2);
+                }
+                else{
+                	entrenadores.add(aux2);
+                }
+
             }
 
 			stat.close();
             con.close();
 
-            request.setAttribute("colaboradores", colaboradores);
-            request.setAttribute("colaboradores2", colaboradores);
+            request.setAttribute("medicos", medicos);
+            request.setAttribute("entrenadores", entrenadores);
 			request.setAttribute("rutinas", rutinas);
 			request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);

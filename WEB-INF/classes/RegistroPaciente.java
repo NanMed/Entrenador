@@ -6,6 +6,8 @@ import javax.servlet.http.*;
 import objetos.Paciente;
 import objetos.Cuenta;
 import objetos.Rutina;
+import objetos.Colaborador;
+import java.util.Vector;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/registroPaciente") 
@@ -13,7 +15,7 @@ public class RegistroPaciente extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response){ 
 
 		try{
-
+            PrintWriter writer = new PrintWriter("/Users/alanzavala/Desktop/DBCurso/proyecto1.txt", "UTF-8");
 			String base = getServletContext().getInitParameter("base");
 			String usuario = getServletContext().getInitParameter("usuario");
             String pass = getServletContext().getInitParameter("pass");
@@ -40,7 +42,8 @@ public class RegistroPaciente extends HttpServlet{
             String selectionR = request.getParameter("selectionFilterR"); 
             String selectionM = request.getParameter("selectionFilterM"); 
             String selectionE = request.getParameter("selectionFilterE");  
-            System.out.println(selectionE);          
+            System.out.println(selectionE);      
+            
 
             if(!selectionR.equals("n/a")){
                 idRutina = Integer.parseInt(selectionR);
@@ -59,7 +62,8 @@ public class RegistroPaciente extends HttpServlet{
             } else {
                 mensaje = "Verifica el id del entrenador"; 
             }
-
+            writer.print("paola");
+            writer.close();
 			String name = request.getParameter("nombre");
 			int cuentas = Integer.parseInt(request.getParameter("cuenta"));
             int window = Integer.parseInt(request.getParameter("pestana"));
@@ -72,9 +76,52 @@ public class RegistroPaciente extends HttpServlet{
             String sql2 = "INSERT INTO paciente (cuenta, nombre, apellido, edad, tipo_u, genero, idRutina, contrasenia, idMedico, idEntrenador) values(" + cuenta + ", '" + nombre + "', '"  + apellido + "', '"  + edad +   "', '"+ tipoU +"' , '" + genero + "', "+idRutina+", '"+ contrasenia+"', "+idMedico+", "+ idEntrenador+");";
 			stat.executeUpdate(sql);
 			stat.executeUpdate(sql2);
+            
 
             mensaje = "Alta exitosa!";
 
+            String sql3 = "SELECT * FROM rutina;";
+
+            ResultSet res = stat.executeQuery(sql3);
+
+            Vector<Rutina> rutinas = new Vector<Rutina>();
+
+            while(res.next()){
+                Rutina aux = new Rutina();
+                aux.setIdRutina(res.getInt("idRutina"));
+                aux.setVideo(res.getString("video"));
+                aux.setTexto(res.getString("texto"));
+                aux.setImagen(res.getString("imagen"));
+                rutinas.add(aux);
+            }
+
+            String sql4 = "SELECT * FROM colaborador;";
+            ResultSet res2 = stat.executeQuery(sql4);
+
+            Vector<Colaborador> medicos = new Vector<Colaborador>();
+            Vector<Colaborador> entrenadores = new Vector<Colaborador>();
+
+            while(res2.next()){
+                Colaborador aux2 = new Colaborador();
+                
+                aux2.setId(res2.getInt("ID"));
+                aux2.setCuenta(res2.getInt("cuenta"));
+                aux2.setNombre(res2.getString("nombre"));
+                aux2.setApellido(res2.getString("apellido"));
+                aux2.setEdad(res2.getString("edad"));
+                aux2.setGenero(res2.getString("genero"));
+                aux2.setContrasenia(res2.getString("contrasenia"));
+                if (aux2.getCuenta() == 1) {
+                    medicos.add(aux2);
+                }
+                else{
+                    entrenadores.add(aux2);
+                }
+
+            }
+            request.setAttribute("medicos", medicos);
+            request.setAttribute("entrenadores", entrenadores);
+            request.setAttribute("rutinas", rutinas);
             request.setAttribute("response", name);
             request.setAttribute("response2", cuentas);
             request.setAttribute("response3", window);

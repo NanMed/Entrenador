@@ -90,8 +90,8 @@
                 <div class="section d-flex flex-column">
                     <select id="selectionFilter" name="selectionFilterM">
                         <option value="n/a">Id Medico</option>
-                        <c:forEach items="${requestScope.colaboradores}" var="colab">
-                            <option value="${colab.cuenta}"><c:out value="${colab.cuenta}"/> - <c:out value="${colab.nombre}"/></option>
+                        <c:forEach items="${requestScope.medicos}" var="medico">
+                            <option value="${medico.id}"><c:out value="${medico.id}"/> - <c:out value="${medico.nombre}"/></option>
                         </c:forEach>
                     </select>
                 </div>
@@ -99,8 +99,8 @@
                 <div class="section d-flex flex-column">
                     <select id="selectionFilter" name="selectionFilterE">
                         <option value="n/a">Id Entrenador</option>
-                        <c:forEach items="${requestScope.colaboradores2}" var="colab2">
-                            <option value="${colab2.cuenta}"><c:out value="${colab2.cuenta}"/> - <c:out value="${colab2.nombre}"/></option>
+                        <c:forEach items="${requestScope.entrenadores}" var="entrenador">
+                            <option value="${entrenador.id}"><c:out value="${entrenador.id}"/> - <c:out value="${entrenador.nombre}"/></option>
                         </c:forEach>
                     </select>
                 </div>
@@ -110,7 +110,7 @@
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
             <input type="text" id="pestana" name="pestana" class="input" value="1"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-            <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.mensaje}">
+            <input type="text" id="mensaje" name="mensaje" class="input" value="${requestScope.mensaje}">
             
             <input class="login_button" type="submit"  value="GUARDAR">
         
