@@ -127,3 +127,19 @@ th, td{
 tr.invisible th{
     border-color: transparent !important;
 }
+
+
+#Registar{
+    border-radius: 25px;
+    font-size: 15px;
+    height: 40px;
+    width: 16%;
+    margin-left: 42%;
+    margin-top: 50px;
+    background-color: #A2E132;
+    font-weight: bold;
+}
+
+#Registar:hover{
+    background-color: #blue;
+}

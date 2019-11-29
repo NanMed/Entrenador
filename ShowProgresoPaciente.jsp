@@ -21,11 +21,10 @@
     <body>
 
         <br> <br>
-        <form action ="./ShowPacientes" method= "post">
+        <form action ="./Session" method= "post">
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="4"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-        
             <input class="proyecto_buton btn btn-success" type="submit"  value="Menu" id="boton_pro">
         </form> 
         <br>

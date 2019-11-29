@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
-        <title>Progeso</title>
+        <title>Historial</title>
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
         <link href="css/show2.css" rel="stylesheet">   
@@ -21,11 +21,10 @@
     <body>
 
         <br> <br>
-        <form action ="./ShowPacientes" method= "post">
+        <form action ="./Session" method= "post">
             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-            <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
+            <input type="text" id="pestana" name="pestana" class="input" value="4"> 
             <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
-        
             <input class="proyecto_buton btn btn-success" type="submit"  value="Menu" id="boton_pro">
         </form> 
         <br>
@@ -47,13 +46,29 @@
        <table border="1" id="main_t">
             <tr class="visible">
                 <th>Id</th>
-                <th>Velocidad</th>
-                <th>Levantamiento</th>
-                <th>Equilibrio</th>
+                <th>E1Levantamiento</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E1Velocidad</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E1Equilibrio</th>
+                <th>Intento1</th>
+               <!--  <th>Intento2</th> -->
+                <th>E2Equilibrio</th>
+                <th>Intento1</th>
+                <!-- <th>Intento2</th> -->
+                <th>E3Equilibrio</th>
+                <th>Intento1</th>
+                <!-- <th>Intento2</th> -->
+                <th>RitmoCFinal</th>
+                <th>RitmoCInicial</th>
+                <th>Omni_gse</th>
                 <th>Dia</th>
-                <th>IdRutina</th>
-                <th>IdPaciente</th>
-                <th>IdRegistros</th>
+                <!-- <th>IdRutina</th>
+                <th>IdPaciente</th> -->
+                
+                
             </tr>
 
             <tr class="invisible">
@@ -65,50 +80,89 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                
             </tr>
-            
-            <c:forEach items="${requestScope.progresos}" var="progreso">
+            <c:forEach items="${requestScope.registro}" var="reg">
                 <tr>
                         <td>
-                            <c:out value="${progreso.idProgreso}" />
-                            
+                            <c:out value="${reg.idRegistro}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${progreso.velocidad}" />
+                            <c:out value="${reg.eje1Levantamiento}" />
                             <br />
                         </td>
 
                         <td>
-                            <c:out value="${progreso.levantamiento}" />
+                            <c:out value="${reg.intento1E1L}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${progreso.equilibrio}" />
+                            <c:out value="${reg.eje1Velocidad}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${progreso.dia}" />
+                            <c:out value="${reg.intento1E1V}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${progreso.idRutina}" />
+                            <c:out value="${reg.eje1Equilibrio}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${progreso.idPaciente}" />
+                            <c:out value="${reg.intento1E1E}" />
                             <br />
                         </td>
                         <td>
-                            <c:out value="${progreso.idRegistro}" />
+                            <c:out value="${reg.eje2Equilibrio}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.intento1E2E}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.eje3Equilibrio}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.intento1E3E}" />
+                            <br />
+                        </td>
+
+                        <td>
+                            <c:out value="${reg.ritmoCInicial}" />
+                            <br />
+                        </td>
+
+                        <td>
+                            <c:out value="${reg.ritmoCIFinal}" />
+                            <br />
+                        </td>
+                        <td>
+                            <c:out value="${reg.omni_gse}" />
+                            <br />
+                        </td>
+
+                        <td>
+                            <c:out value="${reg.dia}" />
                             <br />
                         </td>
                 
                         
                 </tr>
             </c:forEach>
-    </table>
+            
+            
+        </table>
 
         
 

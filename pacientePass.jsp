@@ -101,11 +101,11 @@
         </h1>
       
         <section class="row justify-content-center align-items-center mx-0">
-             <form action="./altaR" method="post"> 
+            <form action="./altaR" method="post"> 
                 <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
                     <h5 class="card-header card-title">Registrar progreso</h5>
                     <div class="card-body">
-                        <p class="card-text">Registra tu rutina de hoy.</p>
+                        <p class="card-text">Registra tu progreso del día de hoy.</p>
                             <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
                             <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
                             <input type="text" id="pestana" name="pestana" class="input" value="11"> 
@@ -114,12 +114,46 @@
                     </div> 
                 </div> 
             </form>
+
+            <form action="./showRutinaPaciente" method="post"> 
+                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                    <h5 class="card-header card-title">Ver Rutina</h5>
+                    <div class="card-body">
+                        <p class="card-text">Revisa la rutina que tienes asignada para después registrar tu progreso</p>
+                            <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="11"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Registrar">
+                    </div> 
+                </div> 
+            </form>
+
+            <form action="./showProgresoPaciente" method="post"> 
+                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                    <h5 class="card-header card-title">Ver Progreso</h5>
+                    <div class="card-body">
+                        <p class="card-text">Después de realizar una rutina de ejercicios tu progreso se queda guardado. Revisa en esta pestania tu progreso</p>
+                            <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="11"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Registrar">
+                    </div> 
+                </div> 
+            </form>
+
+            <form action="./showHistorialPaciente" method="post"> 
+                <div class="card text-white bg-secondary my-0 ml-5" style="max-width: 18rem;">
+                    <h5 class="card-header card-title">Ver Historial</h5>
+                    <div class="card-body">
+                        <p class="card-text">Visualiza todo tu historial de todos los progresos que has hecho</p>
+                            <input type="text" id="name" name="name" class="input" value="${requestScope.response}"> 
+                            <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
+                            <input type="text" id="pestana" name="pestana" class="input" value="11"> 
+                            <input class="proyecto_buton btn btn-success" type="submit"  value="Registrar">
+                    </div> 
+                </div> 
+            </form>s
         </section>
-            
-
-
-        
-
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

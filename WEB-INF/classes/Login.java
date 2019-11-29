@@ -75,6 +75,7 @@ public class Login extends HttpServlet{
             RequestDispatcher disp =  getServletContext().getRequestDispatcher("/showUsuarios.jsp");
 
             if(checkLog){
+                request.setAttribute("userID", verifyRoll);
                 request.setAttribute("response", nombre);
                 request.setAttribute("response2", usuarioA);
                 
