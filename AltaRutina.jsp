@@ -56,6 +56,8 @@
                    
             <input class="login_button" type="submit"  value="GUARDAR">
         </form>
+
+        <p id="MensajeExito" name="mensaje"><c:out value="${requestScope.mensaje}"/></p>
         
     </body>
 </html>

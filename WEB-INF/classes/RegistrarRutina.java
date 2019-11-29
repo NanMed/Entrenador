@@ -30,7 +30,7 @@ public class RegistrarRutina extends HttpServlet{
             String texto = request.getParameter("texto");
             String imagen = request.getParameter("imagen");
 
-            mensaje="¡Alta exitosa!";
+            mensaje="Alta exitosa";
                 
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost/"+base+"?useSSL=false&allowPublicKeyRetrieval=true";
