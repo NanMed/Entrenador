@@ -37,8 +37,8 @@ p:hover{
 }
 
 select {
-    border: 1px solid #A2E132;
-    background-color: #A2E132;
+    border: 1px solid #00ace6;
+    background-color: #00ace6;
     font-size: 20px;
     font-family: 'Raleway';
     margin-right: 30px;
@@ -96,7 +96,7 @@ i:hover{
 }
 
 h4{
-    color: #A2E132;
+    color: #000000;
     font-size: 30px;
 }
 
@@ -107,7 +107,7 @@ table{
     border-radius: 10px;
 }
 tr.visible{
-    background-color: #A2E132;
+    background-color:#00ace6;
     color: black;
 }
 
