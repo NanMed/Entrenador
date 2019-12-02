@@ -30,7 +30,7 @@ public class ShowPacientes extends HttpServlet{
 			Statement stat = con.createStatement();
 			
 			String nombre=request.getParameter("nombre");
-			int cuenta=Integer.parseInt(request.getParameter("cuenta"));
+			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             
             int window= Integer.parseInt(request.getParameter("pestana"));
 			

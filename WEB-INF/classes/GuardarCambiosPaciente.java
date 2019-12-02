@@ -4,13 +4,14 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.Date;
-import objetos.Rutina;
 import objetos.Paciente;
+import objetos.Rutina;
+import objetos.Colaborador;
 import javax.servlet.annotation.WebServlet;
 import java.util.Vector;
 
-@WebServlet("/guardarCambiosRutina")
-public class GuardarCambiosRutina extends HttpServlet{
+@WebServlet("/guardarCambiosPaciente")
+public class GuardarCambiosPaciente extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response){ 
         try{
             String base = getServletContext().getInitParameter("base");
@@ -30,29 +31,34 @@ public class GuardarCambiosRutina extends HttpServlet{
             int cuenta=Integer.parseInt(request.getParameter("cuenta"));
             int window= Integer.parseInt(request.getParameter("pestana"));
 
-            int id = Integer.parseInt(request.getParameter("idRutina"));
-            String video = request.getParameter("video");
-            String texto = request.getParameter("texto");
-            String imagen = request.getParameter("imagen");
+            int id = Integer.parseInt(request.getParameter("idPaciente"));
+            String nombreP = request.getParameter("nombreP");
+            String apellido = request.getParameter("apellido");
+            String edad = request.getParameter("edad");
+            String tipoU = request.getParameter("tipo_u");
+            String genero = request.getParameter("genero");
+            int idRutina = Integer.parseInt(request.getParameter("idRutina")); 
+            int idMedico = Integer.parseInt(request.getParameter("idMedico"));  
+            int idEntrenador = Integer.parseInt(request.getParameter("idEntrenador"));     
 
-            String sql = "UPDATE rutina SET video = \"" + video + "\", texto = \"" + texto + "\", imagen = \"" + imagen + "\" WHERE idRutina = \"" + id + "\";";
+            String sql = "UPDATE paciente SET nombre = \"" + nombreP + "\", apellido = \"" + apellido + "\", edad = \"" + edad + "\", tipo_u = \""+ tipoU + "\", genero = \""+ genero + "\", idRutina = \""+ idRutina + "\", idMedico = \""+ idMedico + "\", idEntrenador = \""+ idEntrenador + "\" WHERE ID = \"" + id + "\";";
             stat.executeUpdate(sql);
 
-            String sql2 = "SELECT * FROM rutina;";
-            ResultSet res = stat.executeQuery(sql2);
+            // String sql2 = "SELECT * FROM paciente;";
+            // ResultSet res = stat.executeQuery(sql2);
 
-            Vector<Rutina> rutinas = new Vector<Rutina>();
+            // Vector<Rutina> rutinas = new Vector<Rutina>();
 
-            while(res.next()){
-                Rutina aux = new Rutina();
-                aux.setIdRutina(res.getInt("idRutina"));
-                aux.setVideo(res.getString("video"));
-                aux.setTexto(res.getString("texto"));
-                aux.setImagen(res.getString("imagen"));
-                rutinas.add(aux);
-            }
+            // while(res.next()){
+            //     Rutina aux = new Rutina();
+            //     aux.setIdRutina(res.getInt("idRutina"));
+            //     aux.setVideo(res.getString("video"));
+            //     aux.setTexto(res.getString("texto"));
+            //     aux.setImagen(res.getString("imagen"));
+            //     rutinas.add(aux);
+            // }
 
-            sql2 = "SELECT * FROM paciente WHERE idEntrenador = "+cuenta+";";
+            String sql2 = "SELECT * FROM paciente;";
             ResultSet res2 = stat.executeQuery(sql2);
 
             Vector<Paciente> pacientes = new Vector<Paciente>();
@@ -77,12 +83,11 @@ public class GuardarCambiosRutina extends HttpServlet{
             con.close();
 
             request.setAttribute("pacientes", pacientes);
-            request.setAttribute("rutinas", rutinas);
             request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
             request.setAttribute("response3", window);
 
-            RequestDispatcher disp = getServletContext().getRequestDispatcher("/showRutinas.jsp");
+            RequestDispatcher disp = getServletContext().getRequestDispatcher("/showPacientes.jsp");
 
             if(disp!=null){
                 disp.forward(request, response);

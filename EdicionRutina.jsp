@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/all.css">        
         <link href="css/formulario.css" rel="stylesheet">
 
-        <title>Nuevo diseño</title>        
+        <title>Edición rutina</title>        
     </head>
     <style>
         #pestana, #name, #cuenta, #nombre{

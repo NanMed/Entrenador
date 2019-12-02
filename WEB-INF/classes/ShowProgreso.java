@@ -26,7 +26,7 @@ public class ShowProgreso extends HttpServlet{
 			Statement stat = con.createStatement();
 			String sql;
 			String nombre = request.getParameter("name");
-			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
+			int cuenta = Integer.parseInt(request.getParameter("cuenta")); 
             
             int window= Integer.parseInt(request.getParameter("pestana"));
             int userId= Integer.parseInt(request.getParameter("test4"));

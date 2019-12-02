@@ -123,7 +123,7 @@
                             <input class="proyecto_buton btn btn-success" type="submit"  value="Editar" id="boton_editar">
                             
                         </form>
-                    </td>                          
+                    </td>                           
                 </tr>
             </c:forEach>
         </table>
