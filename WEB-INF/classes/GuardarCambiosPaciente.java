@@ -35,7 +35,7 @@ public class GuardarCambiosPaciente extends HttpServlet{
             String nombreP = request.getParameter("nombreP");
             String apellido = request.getParameter("apellido");
             String edad = request.getParameter("edad");
-            String tipoU = request.getParameter("tipo_u");
+            String tipoU = request.getParameter("tipoU");
             String genero = request.getParameter("genero");
             int idRutina = Integer.parseInt(request.getParameter("idRutina")); 
             int idMedico = Integer.parseInt(request.getParameter("idMedico"));  

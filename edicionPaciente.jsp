@@ -56,23 +56,52 @@
                         <span class="user_label">Edad</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="tipoU" name="tipoU" class="input" value="${paciente.tipoU}" required>            
+                        <!--<input type="text" id="tipoU" name="tipoU" class="input" value="${paciente.tipoU}" required>-->
+                        <select id="tipoU" name="tipoU">
+                            <option value="${paciente.tipoU}"><c:out value="${paciente.tipoU}"/></option>
+                            <option value="robusto">robusto</option>
+                            <option value="pre-fragil">pre-fragil</option>
+                            <option value="fragil">fragil</option>
+                        </select>         
                         <span class="user_label">Tipo de usuario</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="genero" name="genero" class="input" value="${paciente.genero}" required>            
+                        <!--<input type="text" id="genero" name="genero" class="input" value="${paciente.genero}" required>-->
+                        <select id="genero" name="genero">
+                            <option value="${paciente.genero}"><c:out value="${paciente.genero}"/></option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
                         <span class="user_label">Género</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="idRutina" name="idRutina" class="input" value="${paciente.idRutina}" required>            
+                        <!--<input type="text" id="idRutina" name="idRutina" class="input" value="${paciente.idRutina}" required>-->
+                        <select id="idRutina" name="idRutina">
+                            <option value="${paciente.idRutina}"><c:out value="${paciente.idRutina}"/></option>
+                            <c:forEach items="${requestScope.rutinas}" var="rutinas">
+                                <option value="${rutinas.idRutina}"><c:out value="${rutinas.idRutina}"/></option>
+                            </c:forEach>
+                        </select>
                         <span class="user_label">Id Rutina</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="idMedico" name="idMedico" class="input" value="${paciente.idMedico}" required>            
+                        <!--<input type="text" id="idMedico" name="idMedico" class="input" value="${paciente.idMedico}" required>-->
+                        <select id="idMedico" name="idMedico">
+                            <option value="${paciente.idMedico}"><c:out value="${paciente.idMedico}"/></option>
+                            <c:forEach items="${requestScope.medicos}" var="medicos">
+                                <option value="${medicos.id}"><c:out value="${medicos.id}"/></option>
+                            </c:forEach>
+                        </select>
                         <span class="user_label">Id Médico</span>
                     </div>
                     <div class="section d-flex flex-column">
-                        <input type="text" id="idEntrenador" name="idEntrenador" class="input" value="${paciente.idEntrenador}" required>
+                        <!--<input type="text" id="idEntrenador" name="idEntrenador" class="input" value="${paciente.idEntrenador}" required>-->
+                        <select id="idEntrenador" name="idEntrenador">
+                            <option value="${paciente.idEntrenador}"><c:out value="${paciente.idEntrenador}"/></option>
+                            <c:forEach items="${requestScope.entrenadores}" var="entrenadores">
+                                <option value="${entrenadores.id}"><c:out value="${entrenadores.id}"/></option>
+                            </c:forEach>
+                        </select>
                         <span class="user_label">Id Entrenador</span>
                     </div>
                 </div>

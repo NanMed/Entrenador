@@ -5,6 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.Date;
 import objetos.Paciente;
+import objetos.Colaborador;
+import objetos.Rutina;
 import javax.servlet.annotation.WebServlet;
 import java.util.Vector;
 
@@ -50,9 +52,59 @@ public class EditarPaciente extends HttpServlet{
                 pacientes.add(aux);
             }
 
+
+            String sql2 = "SELECT * FROM rutina;";
+            res = stat.executeQuery(sql2);
+
+            Vector<Rutina> rutinas = new Vector<Rutina>();
+
+            while(res.next()){
+                Rutina aux = new Rutina();
+                aux.setIdRutina(res.getInt("idRutina"));
+                aux.setVideo(res.getString("video"));
+                aux.setTexto(res.getString("texto"));
+                aux.setImagen(res.getString("imagen"));
+                rutinas.add(aux);
+            }
+
+            sql = "SELECT * FROM colaborador WHERE cuenta LIKE '1%';";
+            res = stat.executeQuery(sql);
+            Vector<Colaborador> medicos = new Vector<Colaborador>();
+
+            while(res.next()){
+                Colaborador aux = new Colaborador();
+                aux.setId(res.getInt("ID"));
+                aux.setCuenta(res.getInt("cuenta"));
+                aux.setNombre(res.getString("nombre"));
+                aux.setApellido(res.getString("apellido"));
+                aux.setApellido(res.getString("edad"));
+                aux.setApellido(res.getString("genero"));
+                aux.setContrasenia(res.getString("contrasenia"));
+                medicos.add(aux);
+            }
+
+            sql = "SELECT * FROM colaborador WHERE cuenta LIKE '2%';";
+            res = stat.executeQuery(sql);
+            Vector<Colaborador> entrenadores = new Vector<Colaborador>();
+
+            while(res.next()){
+                Colaborador aux = new Colaborador();
+                aux.setId(res.getInt("ID"));
+                aux.setCuenta(res.getInt("cuenta"));
+                aux.setNombre(res.getString("nombre"));
+                aux.setApellido(res.getString("apellido"));
+                aux.setApellido(res.getString("edad"));
+                aux.setApellido(res.getString("genero"));
+                aux.setContrasenia(res.getString("contrasenia"));
+                entrenadores.add(aux);
+            }
+
             stat.close();
             con.close();
 
+            request.setAttribute("medicos", medicos);
+            request.setAttribute("entrenadores", entrenadores);
+            request.setAttribute("rutinas", rutinas);
             request.setAttribute("pacientes", pacientes);
             request.setAttribute("response", nombre);
             request.setAttribute("response2", cuenta);
