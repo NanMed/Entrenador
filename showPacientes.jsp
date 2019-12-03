@@ -152,7 +152,6 @@
                                 <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                                 <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
                                 <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
-                                
                             </form> 
 
                             <br />
@@ -162,23 +161,18 @@
                             <form action ="./editarPaciente" method="post">
                                 <input type="text" id="test3" name="test3" class="input" value="${paciente.id}"> 
                                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScopeS.response3}"> 
+                                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}"> 
                                 <input type="text" id="name" name="name" class="input" value="${requestScope.response}">
-                                <input class="proyecto_buton btn btn-success" type="submit"  value="Borrar" id="boton_pro3">
-                                
+                                <input class="proyecto_buton btn btn-success" type="submit"  value="Editar" id="boton_editar">
                             </form> 
-
                             <br />
                     </td>
-
                 </tr>
             </c:forEach>
         </table>
-
         <br>
         <br>
         <br>
-        
     </body>
 </html>
 

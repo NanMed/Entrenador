@@ -32,6 +32,14 @@ public class BorrarRutina extends HttpServlet{
             String nombre=request.getParameter("nombre");
             int cuenta=Integer.parseInt(request.getParameter("cuenta"));
             int window= Integer.parseInt(request.getParameter("pestana"));
+
+            String query = " SELECT * FROM paciente WHERE idRutina ="+id+";";
+            ResultSet set = stat.executeQuery(query);
+
+            if(!set.next()  ){
+                String det = "DELETE FROM rutina WHERE idRutina = "+id+";";
+                stat.executeUpdate(det);
+            }
             
             String sql2 = "SELECT * FROM rutina;";
             ResultSet res = stat.executeQuery(sql2);
@@ -46,15 +54,6 @@ public class BorrarRutina extends HttpServlet{
                 rutinas.add(aux);
             }
 
-            System.out.println("cuenta: " + cuenta);
-
-            String query = " SELECT * FROM paciente WHERE idRutina ="+id+";";
-            ResultSet set = stat.executeQuery(query);
-
-            if(!set.next()  ){
-                String det = "DELETE * FROM rutina WHERE idRutina = "+id+";";
-                stat.executeUpdate(det);
-            }
 
             sql2 = "SELECT * FROM paciente WHERE idEntrenador = "+cuenta+";";
             ResultSet res2 = stat.executeQuery(sql2);

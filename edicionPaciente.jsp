@@ -78,7 +78,7 @@
                 </div>
                 
                 <input type="text" id="cuenta" name="cuenta" class="input" value="${requestScope.response2}"> 
-                <input type="text" id="pestana" name="pestana" class="input" value="1"> 
+                <input type="text" id="pestana" name="pestana" class="input" value="${requestScope.response3}">  
                 <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.response}"> 
                 <input type="text" id="nombre" name="nombre" class="input" value="${requestScope.mensaje}">
                        

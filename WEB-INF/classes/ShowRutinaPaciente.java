@@ -31,7 +31,8 @@ public class ShowRutinaPaciente extends HttpServlet{
 			String nombre=request.getParameter("nombre");
 			int cuenta=Integer.parseInt(request.getParameter("cuenta"));
             int window= Integer.parseInt(request.getParameter("pestana"));
-			
+
+
 			String sql2 = "SELECT idRutina FROM paciente WHERE cuenta = "+cuenta+";";
 			ResultSet res = stat.executeQuery(sql2);
 

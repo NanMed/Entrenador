@@ -27,12 +27,20 @@ public class ShowProgresoPaciente extends HttpServlet{
 			String sql;
 			String nombre = request.getParameter("name");
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
+			int idPaciente = 0;
             int window= Integer.parseInt(request.getParameter("pestana"));
 			
-			
-			String sql2 = "SELECT * FROM progreso where idPaciente="+cuenta+";";
+			String sql0 = "Select id from paciente where cuenta = "+cuenta+";";
+            ResultSet res = stat.executeQuery(sql0);
 
-			ResultSet res = stat.executeQuery(sql2);
+            while(res.next()){
+                idPaciente = res.getInt(1);
+                System.out.println("Funciono con idP " + idPaciente);
+            }
+			
+			String sql2 = "SELECT * FROM progreso where idPaciente="+idPaciente+";";
+
+			res = stat.executeQuery(sql2);
 
 			Vector<Progreso> progreso = new Vector<Progreso>();
 			

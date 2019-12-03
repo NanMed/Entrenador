@@ -47,7 +47,16 @@ public class ShowRutinas extends HttpServlet{
                 rutinas.add(aux);
             }
 
-            sql2 = "SELECT * FROM paciente WHERE idEntrenador = "+cuenta+";";
+            sql2 = "SELECT ID FROM colaborador WHERE cuenta = "+cuenta+";";
+			res = stat.executeQuery(sql2);
+
+			int id_colab = 0;
+			while(res.next()){
+				id_colab = res.getInt("ID");
+			}
+
+
+            sql2 = "SELECT * FROM paciente WHERE idEntrenador = "+ id_colab +";";
 			ResultSet res2 = stat.executeQuery(sql2);
 
 			Vector<Paciente> pacientes = new Vector<Paciente>();
