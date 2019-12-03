@@ -48,7 +48,7 @@ public class RegistroColab extends HttpServlet{
                 String genero = request.getParameter("genero");
 
     			Cuenta cuenta = new Cuenta(username, password);
-    			mensaje = "¡Alta exitosa!";
+    			mensaje = "Alta exitosa!";
 
     			Colaborador newColab = new Colaborador(username, nombre, apellido, edad, genero, password);
                 
