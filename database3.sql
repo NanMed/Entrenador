@@ -5,9 +5,9 @@ use `escuela`;
 
 CREATE TABLE IF NOT EXISTS `rutina`(
 	`idRutina` int(21) NOT NULL AUTO_INCREMENT,
-	`video` varchar(20) DEFAULT NULL,
-	`texto` varchar(20) DEFAULT NULL,
-	`imagen` varchar(20) DEFAULT NULL,
+	`video` varchar(100) DEFAULT NULL,
+	`texto` varchar(100) DEFAULT NULL,
+	`imagen` varchar(100) DEFAULT NULL,
 
 	PRIMARY KEY (`idRutina`)
 	
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `rutina`(
 
 CREATE TABLE IF NOT EXISTS `cuenta`(
 	`ID` int(21) NOT NULL AUTO_INCREMENT,
-	`contrasenia` varchar(20) DEFAULT NULL,
+	`contrasenia` varchar(50) DEFAULT NULL,
 
 	PRIMARY KEY (`ID`)
 	
@@ -34,11 +34,11 @@ INSERT INTO `cuenta` (`ID`,`contrasenia`) VALUES
 CREATE TABLE IF NOT EXISTS `colaborador`(
 	`ID` int(11) NOT NULL AUTO_INCREMENT,
 	`cuenta` int(21) NOT NULL,
-	`nombre` varchar(20) DEFAULT NULL,
-	`apellido` varchar(20) DEFAULT NULL,
+	`nombre` varchar(50) DEFAULT NULL,
+	`apellido` varchar(50) DEFAULT NULL,
 	`edad` date DEFAULT NULL,
-	`genero` varchar(20) DEFAULT NULL,
-	`contrasenia` varchar(20) NOT NULL,
+	`genero` varchar(50) DEFAULT NULL,
+	`contrasenia` varchar(50) NOT NULL,
 
 	PRIMARY KEY (`ID`),
 	KEY `cuenta` (`cuenta`),
@@ -52,13 +52,13 @@ insert into colaborador (ID, cuenta, nombre, apellido, edad, genero, contrasenia
 CREATE TABLE IF NOT EXISTS `paciente`(
 	`ID` int(11) NOT NULL AUTO_INCREMENT,
 	`cuenta` int(21) NOT NULL,
-	`nombre` varchar(20) DEFAULT NULL,
-	`apellido` varchar(20) DEFAULT NULL,
+	`nombre` varchar(50) DEFAULT NULL,
+	`apellido` varchar(50) DEFAULT NULL,
 	`edad` date DEFAULT NULL,
-	`tipo_u` varchar(20) DEFAULT NULL,
-	`genero` varchar(20) DEFAULT NULL,
+	`tipo_u` varchar(50) DEFAULT NULL,
+	`genero` varchar(50) DEFAULT NULL,
 	`idRutina` int(21) NOT NULL,
-	`contrasenia` varchar(20) NOT NULL,
+	`contrasenia` varchar(50) NOT NULL,
 	`idMedico` int(11) NOT NULL,
 	`idEntrenador` int(11) NOT NULL,
 
@@ -95,23 +95,23 @@ CREATE TABLE IF NOT EXISTS `rutinas_paciente`(
 
 CREATE TABLE IF NOT EXISTS `registro`(
 	`idRegistro` int (11) NOT NULL AUTO_INCREMENT, 
-	`eje1Levantamiento` varchar(20) DEFAULT NULL,
+	`eje1Levantamiento` varchar(50) DEFAULT NULL,
 	`intento1E1L` int(20) DEFAULT NULL,
 	`intento2E1L` int(20) DEFAULT NULL,
-	`eje1Velocidad` varchar(20) DEFAULT NULL,
+	`eje1Velocidad` varchar(50) DEFAULT NULL,
 	`intento1E1V` int(20) DEFAULT NULL,
 	`intento2E1V` int(20) DEFAULT NULL,
-	`eje1Equilibrio` varchar(20) DEFAULT NULL,
+	`eje1Equilibrio` varchar(50) DEFAULT NULL,
 	`intento1E1E` int(20) DEFAULT NULL,
 	`intento2E1E` int(20) DEFAULT NULL,
-	`eje2Equilibrio` varchar(20) DEFAULT NULL,
+	`eje2Equilibrio` varchar(50) DEFAULT NULL,
 	`intento1E2E` int(20) DEFAULT NULL,
 	`intento2E2E` int(20) DEFAULT NULL,
-	`eje3Equilibrio` varchar(20) DEFAULT NULL,
+	`eje3Equilibrio` varchar(50) DEFAULT NULL,
 	`intento1E3E` int(20) DEFAULT NULL,
 	`intento2E3E` int(20) DEFAULT NULL,
-	`ritmoCFinal` varchar(20) DEFAULT NULL,
-	`ritmoCInicial` varchar(20) DEFAULT NULL,
+	`ritmoCFinal` varchar(50) DEFAULT NULL,
+	`ritmoCInicial` varchar(50) DEFAULT NULL,
 	`omni_gse` varchar(10) DEFAULT NULL,
 	`dia` date NOT NUll,
 	`idPaciente` int(11) NOT NULL,
