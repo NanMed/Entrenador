@@ -25,16 +25,39 @@ public class BorrarColab extends HttpServlet{
     
             Statement stat = con.createStatement();
 
+            String cuenta = request.getParameter("cuenta");
             int id = Integer.parseInt(request.getParameter("test3"));
-            int cuenta = Integer.parseInt(request.getParameter("cuenta"));
             String nombre = request.getParameter("name");
             int window = Integer.parseInt(request.getParameter("pestana"));
 
-            String sql = "Delete from colaborador where ID="+id+";";
-            stat.executeUpdate(sql);
+            String squer = "SELECT cuenta FROM colaborador WHERE ID = "+id+";";
+            ResultSet set = stat.executeQuery(squer);
 
-            String sql2 = "Delete from cuenta where ID="+id+";";
-            stat.executeUpdate(sql2);
+            int cuenta_colab = 0;
+            while(set.next()){
+                cuenta_colab = set.getInt("cuenta");
+            }
+
+            String s = Integer.toString(cuenta_colab);
+            System.out.println("cuenta_colab: " + s);
+
+            if(s.charAt(0) == '1'){
+                String query = " SELECT * FROM paciente WHERE idMedico = "+ id +";";
+                set = stat.executeQuery(query);
+
+            }else if(s.charAt(0) == '2'){
+                String query = " SELECT * FROM paciente WHERE idEntrenador ="+id+";";
+                set = stat.executeQuery(query);
+            }
+
+            if(!set.next()  ){
+                String sql = "Delete from colaborador where ID="+id+";";
+                stat.executeUpdate(sql);
+
+                String sql2 = "Delete from cuenta where ID="+id+";";
+                stat.executeUpdate(sql2);
+            }
+
             
             String sql3 = "SELECT * FROM colaborador;";
 

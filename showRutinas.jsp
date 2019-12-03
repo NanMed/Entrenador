@@ -65,7 +65,7 @@
                         <c:out value="${rutinas.idRutina}" />
                         <br />
                     </td>
-                    <td >
+                    <td onclick="window.open('//${rutinas.video}')" style="cursor: pointer;">
                         <c:out value="${rutinas.video}" />
                         <br />
                     </td>
@@ -73,7 +73,7 @@
                         <c:out value="${rutinas.texto}" />
                         <br />
                     </td>
-                    <td>
+                    <td onclick="window.open('//${rutinas.imagen}')" style="cursor: pointer;">
                         <c:out value="${rutinas.imagen}" />
                         <br/>
                     </td>

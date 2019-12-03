@@ -31,12 +31,23 @@ public class ShowPacientes extends HttpServlet{
 			
 			String nombre=request.getParameter("nombre");
 			int cuenta = Integer.parseInt(request.getParameter("cuenta"));
-            
             int window= Integer.parseInt(request.getParameter("pestana"));
-			
-			String sql2 = "SELECT * FROM paciente;";
 
-			ResultSet res = stat.executeQuery(sql2);
+            String sql = "SELECT ID FROM colaborador WHERE cuenta = "+cuenta+";";
+			ResultSet res = stat.executeQuery(sql);
+
+			int id_colab = 0;
+			while(res.next()){
+				id_colab = res.getInt("ID");
+			}
+
+			if(window == 1){
+				sql = "SELECT * FROM paciente WHERE idMedico = "+ id_colab +";";
+				res = stat.executeQuery(sql);
+			}else if(window == 2){
+				sql = "SELECT * FROM paciente WHERE idEntrenador = "+ id_colab +";";
+				res = stat.executeQuery(sql);
+			}
 
 			Vector<Paciente> pacientes = new Vector<Paciente>();
 			
