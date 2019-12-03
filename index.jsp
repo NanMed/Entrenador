@@ -22,7 +22,7 @@
     <body>
         
         <form action="./Login" method="post" data-sn="home">
-            <img src="img/LogoFit.jpeg" class="logo">
+            <img src="img/logo.jpeg" class="logo">
             <div class="register">
                 <input type="text" id="username" name="username" class="input">            
                 <span class="user_label">Usuario</span>
