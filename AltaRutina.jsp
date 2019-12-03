@@ -20,6 +20,10 @@
         body{
             background-color: #698ed6;
         }
+
+        #mensajeT{
+            color: #000000;
+        }
     </style>
     <body>
 
@@ -57,7 +61,7 @@
             <input class="login_button" type="submit"  value="GUARDAR">
         </form>
 
-        <p id="MensajeExito" name="mensaje"><c:out value="${requestScope.mensaje}"/></p>
+        <p id="MensajeExito" name="mensaje" type="mensajeE"><c:out value="${requestScope.mensaje}"/></p>
         
     </body>
 </html>

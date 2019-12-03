@@ -30,7 +30,7 @@ i:hover{
 }
 
 h4{
-    color: #A2E132;
+    color: #000000;
     font-size: 30px;
 }
 
@@ -114,8 +114,8 @@ div.section{
 }
 
 .login_button:hover{
-    border: 1px solid #A2E132;
-    background-color: #A2E132;
+    border: 1px solid #1a1aff;
+    background-color: ##1a1aff;
     font-size: 20px;
 }
 

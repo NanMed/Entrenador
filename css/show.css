@@ -36,16 +36,16 @@ p:hover{
 }
 
 select {
-    border: 1px solid #A2E132;
-    background-color: #A2E132;
+    border: 1px solid #00bfff;
+    background-color: #00bfff;
     font-size: 20px;
     font-family: 'Raleway';
     margin-right: 30px;
 }
 
 #boton_pro {
-    border: 1px solid #A2E132;
-    background-color: #A2E132;
+    border: 1px solid #00bfff;
+    background-color: #00bfff;
     font-size: 20px;
     font-family: 'Raleway';
     border-radius: 6px;

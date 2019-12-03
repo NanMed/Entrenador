@@ -61,7 +61,10 @@
                 position: absolute;
                 right: 30px;
                 top: 30px;
+                 
             }
+
+            
         </style>
 
         <title>Entrada user</title>
