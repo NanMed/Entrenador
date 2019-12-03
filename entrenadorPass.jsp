@@ -14,7 +14,7 @@
             body{
                 font-family: 'Raleway';
                 margin: 0;                
-                background-color: #698ed6;                           
+                background-color: #0099cc;                           
             }
             #cuenta, #nombre, #pestana, #name{
                 display: none;

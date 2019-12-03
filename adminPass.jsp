@@ -14,7 +14,7 @@
             body{
                 font-family: 'Raleway';
                 margin: 0;
-                background-color: #f1bc31;                           
+                background-color: #0099cc;                           
             }
             h1{
                 color: white;

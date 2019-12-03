@@ -18,7 +18,7 @@
             display: none;
         }
         body{
-            background-color: ¡#698ed6;
+            background-color: #698ed6;
         }
         
     </style>
